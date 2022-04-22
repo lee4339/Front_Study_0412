@@ -1,0 +1,13 @@
+HTML5 --> 웹페이지용이 아닌 모바일에서 사용하기 위해 개발
+
+시맨틱 태그 : 사용하는 용도에 따라서 사용하는 태그를 다른 선언
+
+    div 상단 div            ----------> header      ->  nav(메뉴)  ->  주메뉴
+        메인이미지 div      ----------> section div
+        콘텐츠 부분 div     ----------> section     ->  article(작은콘텐츠)  ->  header
+                                                                                 section
+                                                                                 footer
+        하단 div            ----------> footer      ->  address
+
+
+div는 큰 목록안에서 나누기 위할 때 사용
