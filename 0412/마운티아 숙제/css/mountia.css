@@ -1,0 +1,220 @@
+#wrap {
+    width: 100%;
+}
+
+/* 상단 */
+#header {
+    margin: 0px auto;
+    width: 100%;
+    height: 162px;
+    
+}
+
+/* 마이페이지 */
+.h-h {
+    margin: 0 auto;
+    width: 1000px;
+    height: 47px;
+}
+
+.info-h {
+    float: right;
+    margin-top: 10px;
+}
+
+.info-h li {
+    float: left;
+    padding-right: 10px;
+    margin-right: 10px;
+    line-height: 10px;
+    border-right: 1px solid #333;
+    font-size: 11px;
+}
+
+.info-h li:last-child {
+    border-right: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+/* 상단 로고 */
+.h-m {
+    margin: 0 auto;
+    width: 1000px;
+    height: 65px;
+}
+
+.logo-m {
+    float: left;
+}
+
+.qick-m {
+    float: left;
+    margin: 8px 0px 0px 160px;
+}
+
+.qick-m li {
+    float: left;
+    margin-right: 32px;
+    
+}
+
+.qick-m li:last-child {
+    margin-right: 20px;
+}
+
+.qick-m li a {
+    font-weight: 500;
+}
+
+.search-m {
+    float: left;
+    width: 260px;
+    height: 30px;
+    line-height: 25px;
+    padding-left: 10px;
+    background-color: #ccc;
+}
+
+.search-m > span {
+    margin-top: 3px ;
+    float: left;
+}
+
+.search-m > a {
+    margin-top: 3.5px ;
+    float: right; 
+}
+
+.latest-m img{
+    margin: 8px 0px 0px 13px;
+}
+
+/* 상단 메뉴 */
+.h-f {
+    width: 100%;
+    height: 50px;
+    background: url(../images/nav_area.jpg);
+    background-position: 50% 0; 
+    background-repeat: no-repeat;
+}
+
+.h-f ul {
+    margin: 0 auto;
+    width: 1005px;
+}
+
+.h-f ul li {
+    float: left;
+}
+
+/* 메인 */
+/* 메인이미지 */
+#main-img {
+    width: 100%;
+    height: 465px;
+}
+
+/* 메인 컨텐츠 */
+#main-con{
+    margin: 0px auto;
+    margin-top: 40px;
+    width: 1000px;
+    height: 250px;
+}
+/* 메인 아이템 */
+.m-item-l {
+    float: left;
+    width: 170px;
+    height: 258px;
+}
+
+.m-item-l h3 {
+    padding: 18px 0;
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.m-item-l ul {
+    margin-top: 30px;
+}
+
+.m-item-l li { 
+    margin-bottom: 17px;
+}
+
+.m-item-l a {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.m-item-l a:hover {
+    color: coral;
+    text-decoration: underline;
+}
+
+.m-item-r {
+    float: right;
+    width: 800px;
+    height: 257px;
+}
+
+.m-item-r ul {
+    float: left;
+    
+}
+
+.m-item-r li {
+    float: left;
+    width: 190px;
+    height: 257px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.m-item-r li:last-child {
+    margin-right: 0px;
+}
+
+.m-item-r img {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.m-item-r h4 {
+    font-size: 13px;
+    padding: 10px 0px 0px 12px;
+}
+
+.m-item-r p {
+    font-size: 13px;
+    padding: 5px 0px 0px 12px;
+}
+
+/* 메인 샵 */
+.m-shop {
+    margin: 0 auto;
+    margin-top: 45px;
+    width: 1005px;
+    height: 278px;
+    float: left;
+
+}
+
+.m-shop a {
+    float: left;
+    margin-right: 17px;
+}
+
+.m-shop-la {
+    margin-right: 0px;
+}
+.m-shop img {
+    width: 100%;
+}
+
+
+
