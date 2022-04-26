@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼문</title>
+
+    <style>
+        .text {
+            width: 300px;
+            height: 30px;
+            border: 1px;
+            border: 1px solid #ccc;
+            background-color: aliceblue;
+            font-size: 15px;
+            color: aqua;
+        }
+        .text:focus {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form method="post" action="./test.php">
+        <p>아이디: <input type="text" maxlength="10" size="10" placeholder="아이디를 입력하세요" class="text"></p>
+        <p>비밀번호: <input type="password" maxlength="10" placeholder="비밀번호를 입력해주세요" class="text"></p>
+        <p>성별: <label>남자<input type="radio" name="gender"></label>
+            <label>여자<input type="radio" name="gender" checked></label>
+        </p>
+        <!-- radio를 사용할때는 name속성값을 동일하게 한다 -->
+        <p>취미: <label>드라이브</label> <input type="checkbox">
+            <label>영화감상</label><input type="checkbox">
+            <label>게임</label> <input type="checkbox">
+            <label>등산</label><input type="checkbox">
+        </p>
+
+        <p>직업:
+            <select>
+                <option value="선택하세요">선택하세요</option>
+                <option value="학생">학생</option>
+                <option value="컴퓨터/인터넷">컴퓨터/인터넷</option>
+                <option value="언론">언론</option>
+                <option value="공무원">공무원</option>
+                <option value="서비스업">서비스업</option>
+                <option value="의료">의료</option>
+                <option value="기타">기타</option>
+            </select>
+        </p>
+
+        <p>
+            <textarea cols="50" rows="10"></textarea>
+        </p>
+
+        <p>사진: <input type="file"></p>
+        <p>
+            <input type="submit" value="전송">
+            <input type="reset" value="재작성"
+            style="font-size: 18px; background-color: aquamarine; border-radius: 5px;">
+            <input type="button" value="클릭" onclick="alert('클릭이 되었습니다')">
+        </p>
+    </form>
+</body>
+
+</html>
