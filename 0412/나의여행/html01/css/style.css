@@ -1,0 +1,210 @@
+#wrap {
+    width: 100%;
+}
+
+/* 상단부분 */
+#header {
+    width: 100%;
+    height: 175px;
+
+}
+
+#header .logo {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+
+}
+
+#header .nav {
+    width: 100%;
+    padding-top: 27.5px;
+    box-sizing: border-box;
+    height: 75px;
+
+
+}
+
+#header .nav ul {
+    margin: 0 auto;
+    width: 820px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header .nav li {
+    float: left;
+
+}
+
+#header .nav a {
+    font-size: 20px;
+}
+
+
+/* 메인이미지 */
+#main_img {
+    width: 100%;
+    height: 810px;
+    background: url(../images/visual.jpg) no-repeat 50% 0;
+}
+
+/* 본문부분 */
+#contents {
+    width: 100%;
+}
+
+/* 인기상품 */
+#contents .product {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#contents .product header {
+    width: 100%;
+    height: 70px;
+    padding: 35px 0 0 5px;
+    box-sizing: border-box;
+}
+
+#contents .product header>h3 {
+    font-size: 18px;
+}
+
+#contents .product section {
+    width: 100%;
+    height: 620px;
+}
+
+#contents .product .l_img {
+    float: left;
+    width: 598px;
+    height: 620px;
+}
+
+#contents .product .l_img>img {
+    float: left;
+}
+
+#contents .product .txt_box {
+    float: left;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 50px 30px 0 25px;
+}
+
+#contents .product .txt_box h4 {
+    float: left;
+    font-size: 36px;
+    padding: 0 30px;
+}
+
+#contents .product .txt_box div {
+    float: left;
+}
+
+#contents .product .txt_box p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#contents .product .txt_box span {
+    font-size: 15px;
+}
+
+#contents .product .txt_box a {
+    float: right;
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+#contents .product .r_imgs {
+    float: right;
+    width: 550px;
+}
+
+#contents .product .r_imgs li {
+    width: 550px;
+    height: 106px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+#contents .product .r_imgs h4 {
+    float: left;
+    font-size: 35px;
+    padding: 0 25px;
+    line-height: 106px;
+}
+
+#contents .product .r_imgs img {
+    float: left;
+    margin-right: 25px;
+}
+
+#contents .product .r_imgs div {
+    float: left;
+    padding: 35px 0 0 0;
+}
+
+#contents .product .r_imgs p {
+    font-size: 20px;
+}
+
+#contents .product .r_imgs span {
+    font-size: 15px;
+}
+
+#contents .product .r_imgs a {
+    float: right;
+    line-height: 106px;
+}
+
+#contents .product footer {}
+
+
+#contents .event {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#contents .event header {
+    width: 100%;
+    height: 70px;
+    padding: 35px 0 0 5px;
+    box-sizing: border-box;
+}
+
+#contents .event header h3 {
+    font-size: 18px;
+}
+
+#contents .event>ul {
+    width: 100%;
+}
+
+#contents .event>ul li {
+    float: left;
+    width: 370px;
+    height: 510px;
+    border: 1px solid #ccc;
+    margin-right: 42px;
+}
+
+#contents .event>ul li:last-child {
+    margin-right: 0px;
+}
+
+#contents .event>ul li div {
+    padding: 24px 20px 24px 20px;
+}
+
+#contents .event>ul li h4 {}
+
+#contents .event>ul li p {}
+
+#contents .event>ul li span {}
