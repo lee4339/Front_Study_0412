@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }   
+
+        div.box {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #000;
+        }
+        
+        .inbox01 {
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            transform: translate(0px, 0px);
+            transition: all 1s;
+        }
+
+        .box_01:hover > .inbox01 {
+            transform: translate(500px, 100px);
+            background-color: black;
+        }
+
+
+        .box_02 {
+            margin: 100px;
+        }
+
+        .inbox02 {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            transform: scale(1);
+            transition: all 1s;
+        }
+
+        .box_02:hover .inbox02 {
+            transform: scale(1.2);
+        }
+
+        .inbox03 {
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            transform: rotate(0deg);
+            transition: all 1s;
+        }
+
+        .box_03:hover .inbox03 {
+            transform: rotate(360deg);
+        }
+
+        .box_04 {
+            margin: 100px;
+        }
+
+        .inbox04 {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            transform: skew(0, 0);
+            transition: all 1s;
+        }
+
+        .box_04:hover .inbox04 {
+            transform: skew(-45deg, 0);
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box box_01">
+        <div class="inbox01">translate</div>
+    </div>
+    <br><br><br><br>
+
+    <div class="box box_02">
+        <div class="inbox02">scale</div>
+    </div>
+    <br><br><br><br>
+    
+    <div class="box box_03">
+        <div class="inbox03">rotate</div>
+    </div>
+    <br><br><br><br>
+    
+    <div class="box box_04">
+        <div class="inbox04">skew</div>
+    </div>
+</body>
+</html>

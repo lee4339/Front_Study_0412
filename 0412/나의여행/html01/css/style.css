@@ -185,6 +185,7 @@
 
 #contents .event>ul {
     width: 100%;
+    height: 510px;
 }
 
 #contents .event>ul li {
@@ -208,3 +209,112 @@
 #contents .event>ul li p {}
 
 #contents .event>ul li span {}
+
+#contents .event footer {
+    width: 100%;
+    height: 170px;
+    text-align: center;
+    line-height: 170px;
+}
+
+#contents .event footer a {
+    font-size: 22px;
+}
+
+/* 하단부분 */
+#footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+#footer .info {
+    margin: 0 auto;
+    width: 1200px;
+    height: 155px;
+}
+
+#footer .info li {
+    float: left;
+}
+
+#footer .info li.center {
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+#footer .info li.center h4 {
+    font-size: 13px;
+}
+
+#footer .info li.center p.number {
+    padding-top: 8px;
+    font-size: 24px;
+    color: #000;
+    font-weight: 900;
+}
+
+#footer .info li.center p.txt {
+    padding-top: 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+
+#footer .info li.ask {
+    padding: 50px 0 0 140px;
+    box-sizing: border-box;
+}
+
+#footer .info li.ask h4 {
+    font-size: 13px;
+}
+
+#footer .info li.ask p {
+    font-size: 30px;
+    color: #ccc;
+    font-weight: 900;
+}
+
+#footer .info li.advice {
+    float: right;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+#footer .info li.advice h4 {
+    font-size: 13px;
+}
+
+#footer .info li.advice img {
+    width: 260px;
+}
+
+#footer .f_bottom {
+    border-top: 1px solid #ccc;
+    width: 100%;
+    height: 160px;
+    background-color: rgb(217, 217, 217);
+}
+
+#footer .f_bottom .info_mn {
+    margin: 0 auto;
+    padding-top: 30px;
+    box-sizing: border-box;
+    width: 530px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer .f_bottom .info_mn li {}
+
+#footer .f_bottom .info_mn a {
+    font-size: 13px;
+    color: #333;
+}
+
+#footer .f_bottom .address {
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+    font-style: normal;
+}

@@ -1,0 +1,115 @@
+[CSS3 웹 브라우저별 접두사(vendor prefix) ]
+
+CSS3는 표준안이 아직 확정되지 않은 상태이기 때문에 최신 웹 브라우저들은 CSS3 속성을 
+실험적으로 제공하고 있음. 이를 위해 속성이나 속성 값 앞에
+웹 브라우저별로 접두사(vendor prefix)를 제공하고 있으며 이 접두사의 경우 웹 브라우저별로 
+다르기 때문에 하나의 속성을 선언하기 위해서는 여러번의 동일한 선언을 지정해야 함.
+
+파이어폭스 -moz-
+크롭, 사파리 -webkit-
+오페라 -o-
+익스플로러 -ms-
+
+header{background-size:100%;
+       -webkit-background-size:100%;
+       -ms--background-size:100%;}
+
+RGBA 형식 및 HSLA 형식의 사용 예]
+http://www.colorpicker.com/
+RGBA형식 --> color:rgba(255, 127, 45, 0.5)
+             color:rgba(red, greeen, blue, 투명도)
+
+
+http://www.workwithcolor.com/hsl-color-picker-01.htm
+HSLA형식 --> color:hsla(0, 0%, 100%, 0.5)
+            color:hsla(색상, 채도, 명도, 투명도)       
+
+
+
+background-size : [x], [y]
+;백 그라운 이미지의 크기를 지정한다.
+
+[x]% [y]% : 적용되는 요소의 크기에 비례하여 배경 이미지 적용
+[x]px [y]px : 절대 크기로 배경 이미지 적용
+100%: 배경이미지가 적용된 요소의 크기에 맞춤(크기의 변화가 생기면 배경의사이즈도 변화생김.)
+auto: 배경이미지의 원래크기를 그대로 유지
+cover : 배경 이미지를 늘여 적용되는 요소 전체에 표시
+          배경이미지 영역의 사이즈 바뀔때->  이미지의 가로,세로크기중 작은크기를 기준으로 
+                                                             배경이미지의 사이즈 변화생김 
+contain : 배경 이미지의 가로 세로 비율을 맞춰 요소에 표시할수 있는 최대 크기로 표시
+             배경이미지 영역의 사이즈 바뀔때->  이미지의 가로,세로크기중 큰크기를 기준으로 
+                                                             배경이미지의 사이즈 변화생김 
+
+
+
+outline요소의 아웃라인을 그림 border와는 별개의 속성이며 border를 설정한는 것과 
+같이 아래의 속성을 단축하여 사용할 수 있음
+
+outline-style : 아웃라인의 형식
+outline-color : 아웃라인의 색상
+outline-width : 아웃라인의 두께
+outline-offset:[d];
+
+d : 아웃라인을 옵셋시키는 거리로 음수값도 가능함       
+
+
+text-shadow:[dx] [dy] [bulr] [color]
+;텍스트에 그림자를 지정
+
+dx : 본체와 그림자의 가로방향 거리
+dy : 본체와 그림자의 세로방향 거리
+bulr : 그림자의 흐려짐 정도
+color : 그림자의 색상
+
+
+
+box-shadow:[dx] [dy] [bulr] [spread] [set]
+;지정된 요소의 그림자를 설정함
+
+dx : 그림자의 가로방향 위치
+dy : 그림자의 세로방향 위치
+bulr : 흐려짐 정도
+spread : 번짐 정도
+set : 그림자의 형태
+ •outset : 요소 바깥쪽으로 그림자가 떨어짐 (기본값)
+ •inset : 요소 안쪽으로 그림자가 떨어짐
+
+
+ opacity:[fx]
+;요소의 투명도 지정
+fx : 요소의 투명도 지정 0 ~ 1 사이 값
+
+중요**** opacity는 애니메이션이 적용됨 
+         display:none는 애니메이션이 적용이 안됨
+
+border-radius:[length]
+;Box Model 외각선의 곡률 지정
+length : 곡률의 크기 
+border-top-left-radius / border-top-right-radius / border-bottom-left-radius / border-bottom-right-radius 으로 개별 지정 가능
+
+
+
+transform:요소의 형태를 변경함
+
+translate([dx],[dy]) : 지정한 크기 만큼 이동 시킴(현재위치에서 상대적으로 이동)
+scale([ds]) : 지정한 배율 만큼 확대함
+rotate([deg]) : 지정한 각도만큼 회전 시킴
+skew([degx],[degy]) : 지정한 경사로 기울림
+
+
+transition:[변환속성],[에니메이션 시간];class나 선택상태 변경되어 속성이 변화할 때 상태 변화를 부드럽게 에니메이션함
+
+변환속성 : 변환할 속성 all로 지정되면 모든 속성이 영향받음
+에니메이션 시간 : 에니메이션 시간을 지정함   
+
+transition-delay: 애니메이션의 지연시간을 지정함
+transition-duration : 에니메이션이 실행시간을 지정함
+transition-property : 어떤 속성을 변형할지 지정함
+transition-timing-function : 에니메이션이 속도 형태를 지정함(가속도)
+  linear:시작에서 끝까지 똑같은 속도로 진행
+  ease:처음에는 천천히 시작하고 점점빨라지다가 마지막엔 천천히 끝남
+  ease-in:시작은 느리게
+  ease-out:느리게 끝냄
+  ease-in-out:느리게 시작하고 느리게 끝냄
+  cubic-bezier:직접베이직 함수를 정의해서 사용
+  n에서 사용할 수 있는 값은 0~1사이입니다
