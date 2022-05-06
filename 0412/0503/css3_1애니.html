@@ -35,10 +35,74 @@
             background-color: aquamarine;
             transform: rotate(360deg) scale(0.5);
         }
+
+        /*----------------------------------------------------*/
+
+        .box2 {
+            margin: 100px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ccc;
+        }
+
+        .box2_in {
+            width: 150px;
+            height: 150px;
+            background-color: blueviolet;
+            transition-delay: 0s;
+            transition-duration: 0.7s;
+            transition-property: all;
+            transition-timing-function: ease-in-out;
+
+        }
+
+        .box2:hover .box2_in {
+            width: 500px;
+        }
+
+        .box3, .box4, .box5 {
+            margin: 100px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ccc;
+        }
+
+        .box4 {
+            transition-delay: 0s;
+            transition-duration: 0.7s;
+            transition-property: all;
+        }
+
+        /* .box3:hover + .box4 {
+            width: 500px;
+        } */
+
+        .box5 {
+            transition-delay: 0s;
+            transition-duration: 0.7s;
+            transition-property: all;
+        }
+
+        .box3:hover ~ .box5 {
+            width: 500px;
+        }
     </style>
 
 </head>
 <body>
+    <!-- 요소 자신에게 트랜지션 효과적용 -->
     <div class="box1">box1</div>
+    <br><br><br><br><br>
+
+    <!-- 요소에 자식요소에게 트랜지션 효과적용 -->
+    <div class="box2">
+        <div class="box2_in">box2_in</div>
+    </div>
+
+    <!-- 요소에 형제들끼리 트랜지션 효과적용 -->
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+    <div class="box5">box5</div>
+
 </body>
 </html>

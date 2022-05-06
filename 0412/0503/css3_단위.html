@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        /* em(ex) */
+        .box01 {
+            font-size: 20px;
+        }
+
+        .box01-01 {
+            font-size: 1em;
+            /*20px*/
+            /* 1em 바로 위 부모요소에 글자크기 100%로 설정한게  1em */
+        }
+
+        .box01-01-01 {
+            font-size: 2em;
+            width: 10em;
+            /* 1em(20px)*10 => 200px */
+        }
+
+        /* rem 요소중 최상위에 글자 크기를 100% 설정한 크기*/
+        .box01-01-01-01 {
+            font-size: 1rem;
+            /*12px*/
+        }
+
+        /*
+         vw:현재화면에 가로값을 기준으로 설정된 크기 100vw  
+         vh:현재화면에 세로값을 기준으로 설정된 크기 100vw
+        */
+        .txt_vw {
+            font-size: 10vw;
+        }
+
+        .txt_vh {
+            font-size: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box01">
+        <h2>box01</h2>
+        <div class="box01-01">
+            <h2>box01-01(em)</h2>
+            <div class="box01-01-01">
+                <h2>box01-01-01(em)</h2>
+                <div class="box01-01-01-01">
+                    <h2>box01-01-01(rem)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="txt_vw">vw/vh</h2>
+    <h2 class="txt_vh">vw/vh</h2>
+</body>
+
+</html>

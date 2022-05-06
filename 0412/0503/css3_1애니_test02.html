@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .menu {
+            margin: 100px;
+        }
+
+        .menu li {
+            float: left;
+            margin-right: 3px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            background-color: aquamarine;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+        }
+
+        .menu li .box {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            transform: rotate(0deg);
+        }
+
+        .menu li:hover .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(360deg);
+            transition-delay: 0.2s;
+            transition-duration: 0.7s;
+            transition-property: all;
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>
+            <a href="#">menu</a>
+            <div class="box">
+                over
+            </div>
+        </li>
+        <li>
+            <a href="#">menu</a>
+            <div class="box">
+                over
+            </div>
+        </li>
+        <li>
+            <a href="#">menu</a>
+            <div class="box">
+                over
+            </div>
+        </li>
+        <li>
+            <a href="#">menu</a>
+            <div class="box">
+                over
+            </div>
+        </li>
+        <li>
+            <a href="#">menu</a>
+            <div class="box">
+                over
+            </div>
+        </li>
+    </ul>
+
+</body>
+
+</html>
