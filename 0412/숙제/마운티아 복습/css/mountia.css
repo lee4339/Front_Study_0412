@@ -199,7 +199,7 @@
     margin: 0 auto;
     margin-top: 45px;
     width: 1005px;
-    height: 278px;
+    height: 280px;
     float: left;
 
 }
@@ -209,11 +209,8 @@
     margin-right: 17px;
 }
 
-.m-shop-la {
+.m-shop:last-child {
     margin-right: 0px;
-}
-.m-shop img {
-    width: 100%;
 }
 
 
