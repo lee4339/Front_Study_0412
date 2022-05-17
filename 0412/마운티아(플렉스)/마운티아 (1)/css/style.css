@@ -1,12 +1,14 @@
+
 #wrap {
       width: 100%;
+      display: flex;
+      flex-direction: column;
   }
   
   #header {
       float: left;
       width: 100%;
       height: 165px;
-      background-color: blue;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -15,7 +17,6 @@
   #header_in {
       width: 1000px;
       height: 120px;
-      background-color: red;
   }
 
   #header_in .info_area {
@@ -28,13 +29,22 @@
 
   #header_in .info_mn {
         display: flex;
-        width: 150px;
+        width: 300px;
         justify-content: space-between;
   }
+
   #header_in .info_mn a {
-        color: #fff;
+        color: #333;
+        box-sizing: border-box;
+        padding-right: 12px;
+        border-right: 1px solid #333;
         font-size: 11px;
   }
+
+  #header_in .info_mn .nav_last_a {
+      border-right: 0px;
+  }
+
   #header_in .header_in_b {
         padding-top: 20px;
         width: 100%;
@@ -45,12 +55,14 @@
   #header_in .logo {
         width: 240px;
         height: 70px;
-        background-color: aqua;
+        padding-top: 16px;
+  }
+  #header_in .logo img {
+      width: 100%;
   }
   #header_in .h_group {
       width: 650px;
       height: 70px;
-      background-color: aquamarine;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -59,14 +71,23 @@
 
   #header_in .h_group .q_mn {
         width: 100px;
+        margin-left:150px ;
         display: flex;
         justify-content: space-between;
   }
+
   #header_in .h_group .input {
-        width: 350px;
+        width: 260px;
         height: 25px;
-        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(237, 231, 231);
         margin: 0 0 0 20px;
+        
+  }
+
+  #header_in .h_group .input span {
+        padding: 4px 0 0 4px;
   }
   #header_in .h_group .latest {
       margin: 0 0 0 15px;
@@ -75,9 +96,9 @@
   #nav {
       width: 100%;
       height: 45px;
-      background-color: blueviolet;
       display: flex;
       justify-content: center;
+      background: url(../images/nav_area.jpg) no-repeat 50% 0;
   }
 
   #nav ul {
@@ -88,7 +109,7 @@
   #main_img {
         width: 100%;
         height: 460px;
-        background-color: brown;
+        background: url(../images/main_img.jpg) no-repeat 50% 0;
   }
 
   /* 내용부분 */
@@ -104,19 +125,43 @@
   #contents .item {
         width: 1000px;
         height: 260px;
-        background-color: bisque;
         display: flex;
         justify-content: space-between;
   }
+
   #contents .item .item_l{
         width: 175px;
         height: 260px;
-        background-color: darkgreen;
   }
+
+  #contents .item .item_l h3 {
+        padding: 10px 0;
+        border-top: 2px solid #333;
+        border-bottom: 2px solid #333;
+        font-size: 28px;
+        font-weight: 900;
+  }
+  #contents .item_l ul {
+        margin-top: 30px;
+  }
+  #contents .item_l ul li {
+        margin-bottom: 15px;
+
+  }
+  #contents .item_l ul li a{
+        font-size: 15px;
+        font-weight: 700;
+  }
+
+  #contents .item_l ul li a:hover {
+        color: orange;
+        text-decoration: underline;
+  }
+
+
   #contents .item .item_r{
         width: 800px;
         height: 260px;
-        background-color: fuchsia;
         
   }
 
@@ -128,14 +173,27 @@
   #contents .item .item_r li {
       width: 190px;
       height: 260px;
-      background-color: chartreuse;
+      border: 1px solid #555;
+  }
+
+  #contents .item .item_r li img {
+        border-bottom: 1px solid #555;
+        width: 100%;
+  }
+
+  #contents .item .item_r li h4 {
+        font-size: 12px;
+        padding: 16px 0 0 15px;
+  }
+  #contents .item .item_r li p {
+      font-size: 12px;
+      padding: 10px 0 0 15px;
   }
 
   #contents .go_btn {
         width: 1000px;
         height: 280px;
         margin-top: 45px;
-        background-color: slateblue;
   }
 
   #contents .go_btn ul {
@@ -146,20 +204,22 @@
   #contents .go_btn li {
       width: 320px;
       height: 280px;
-      background-color: blue;
+  }
+
+  #contents .go_btn li img {
+        width: 100%;
   }
 
   #contents .movie {
         width: 100%;
         height: 300px;
         margin-top: 40px;
-        background-color: coral;
+        background: url(../images/movie.png) no-repeat 50% 0;
   }
   #contents .style {
       width: 1000px;
       height: 260px;
       margin-top: 40px;
-      background-color: rgb(22, 192, 78);
       display: flex;
       justify-content: space-between;
   }
@@ -167,12 +227,35 @@
   #contents .style .style_l{
       width: 175px;
       height: 260px;
-      background-color: rgb(66, 26, 198);
 }
+
+#contents .style .style_l h3 {
+      padding: 10px 0;
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
+      font-size: 28px;
+      font-weight: 900;
+}
+#contents .style_l ul {
+      margin-top: 30px;
+}
+#contents .style_l ul li {
+      margin-bottom: 15px;
+
+}
+#contents .style_l ul li a{
+      font-size: 15px;
+      font-weight: 700;
+}
+
+#contents .style_l ul li a:hover {
+      color: orange;
+      text-decoration: unsderline;
+}
+
 #contents .style .style_r{
       width: 800px;
       height: 260px;
-      background-color: rgb(203, 209, 10);
       
 }
 
@@ -184,25 +267,37 @@
 #contents .style .style_r li {
     width: 190px;
     height: 260px;
-    background-color: rgb(217, 21, 34);
+    border: 1px solid #555;
 }
+
+#contents .style .style_r li img {
+      border-bottom: 1px solid #555;
+      width: 100%;
+}
+
+#contents .style .style_r li h4 {
+      font-size: 12px;
+      padding: 16px 0 0 15px;
+}
+#contents .style .style_r li p {
+    font-size: 12px;
+    padding: 10px 0 0 15px;
+}
+
   #contents .banner {
         width: 1000px;
         height: 400px;
         margin-top: 45px;
-        background-color: rgb(52, 170, 229);
         display: flex;
         justify-content: space-between;
   }
   #contents .banner .group {
         width: 490px;
-        height: 400px;
-        background-color: coral;
+        height: 400px
   }
   #contents .banner .group > div {
         width: 100%;
         height: 190px;
-        background-color: yellow;
   }
   #contents .banner .group>div.img01-1 {
         margin-bottom: 15px;
@@ -210,13 +305,13 @@
   #contents .banner .img02 {
         width: 495px;
         height: 400px;
-        background-color: blueviolet;
+        border-left: 1px solid #333;
   }
   #contents .info {
         width: 100%;
         height: 160px;
         margin-top: 80px;
-        background-color: black;
+        background: url(../images/footer_top_bg.jpg);
 
   }
 
@@ -227,16 +322,15 @@
   }
   #contents .info .info_h .info_h1  {
         width: 450px;
-        background-color: red;
+        
 
   }
   #contents .info .info_h .info_h2  {
         width: 500px;
-        background-color: rgb(255, 170, 0);
+        
   }
   #contents .info .info_h .info_h3  {
         width: 900px;
-        background-color: yellow;
   }
 
 
