@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암시적타입변환</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        const a = 10 + "문자열";
+        console.log(a);//문자열변환
+
+        const b = "3" * "5";
+        console.log(b);//숫자연산
+
+        const c = 10 - "문자열";
+        console.log(c);
+
+        const d = "10" - 20;
+        console.log(d);
+    </script>
+
+</body>
+
+</html>

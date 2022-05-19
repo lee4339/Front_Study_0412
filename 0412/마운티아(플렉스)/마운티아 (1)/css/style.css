@@ -333,22 +333,105 @@
         width: 900px;
   }
 
+  #contents .info .info_b {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+  }
+  #contents .info .info_b h3 {
+        color: white;
+        font-size: 15px;
+  }
+  #contents .info .info_b p {
+      color: white;
+  }
+  #contents .info .span {
+        display: flex;
+        justify-content: flex-end;
+        
+  }
+  #contents .info .info_b span {
+        color: white;
 
+  }
 
 
   /* 하단 */
   #footer {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
   }
   #footer .footer_h {
-        width: 100%;
+        box-sizing: border-box;
+        width: 1000px;
         height: 290px;
-        background-color: chartreuse;
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        
+  }
+
+  #footer .footer_h_ul h3{
+        margin-bottom: 8px ;
+  }
+  #footer .footer_h_box {
+        width: 240px;
+        height: 290px;
+        
+        background-color: blue;
+        color: red;
+        font-size: 30px;
+        text-align: center;
   }
   #footer .footer_b {
-        width: 100%;
+        width: 1000px;
         height: 145px;
-        background-color: blueviolet;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+  }
+
+  #footer .footer_b_a {
+        width: 620px;
+        height: 145px;
+        font-size: 100px;
+        text-align: center;
+  }
+
+  #footer .footer-r {
+        width: 160px;
+        height: 145px;
+  }
+
+  #footer .footer-r .f_button {
+        padding-top: 35px;
+        display: flex;
+  }
+
+  #footer .footer-r .f_button li {
+        margin-right: 5px;
+  }
+
+  #footer .footer-r .f-input {
+        width: 150px;
+        height: 30px;
+        margin-top: 4px;
+        padding-top: 5px;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        color: black;
+  }
+
+  #footer .footer-r .f-input span {
+        padding-top: 10px;
+        
   }
 
 

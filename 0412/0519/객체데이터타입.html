@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체데이터타입</title>
+    
+</head>
+
+<body>
+
+    <script>
+        'user strict'; 
+         //const dog = [100, 200, 300, 400]
+        const dog = {"name": "루시", "age":10, "weight":2.5};
+        console.log(dog);
+
+        console.log(`이름: ${dog.name}`);
+        console.log(`나이: ${dog.age}`);
+
+        dog.weight = 3; //객체에 지정된 속성에 값을 변환가능
+        console.log(`무게: ${dog.weight}`);
+
+        //const dog = {"name": "뽀미", "age":5, "weight":6};
+        //const는 새로운 객체를 참조할 수 없음 -> 상수로 선언했기 때문
+    </script>
+</body>
+
+</html>
