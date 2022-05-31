@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updown이벤트</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('p').mouseup(function () {
+                $(this).after('<p>마우스up</p>')
+            });
+
+            $('p').mousedown(function () {
+                $(this).after('<p>마우스down</p>')
+            });
+        })
+    </script>
+</head>
+<body>
+    <p>여기를 클릭해보세요</p>
+</body>
+</html>

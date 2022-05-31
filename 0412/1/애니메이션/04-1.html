@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        .box01 {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border: 2px solid blue;
+            position: relative;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            $('.box01').delay(500).css({ left: '1500px' }).animate({ left: '500px' }, function () {
+                $('.box01').delay(500).animate({ left: '1000px' }, function () {
+                    $('.box01').delay(1000).animate({ width: '500px', height: '500px' }, function () {
+                        $('.box01').animate({ width: '50px', height: '50px' }, function () {
+                            $('.box01').animate({ width: '50px', height: '50px' }, function () {
+                                $('.box01').delay(1000).animate({ top: '500px' }, function () { $('.box01').delay(500).animate({ opacity: 0 }); });
+                            });
+                        });
+                    });
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box01">box01</div>
+</body>
+
+</html>

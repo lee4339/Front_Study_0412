@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overout이벤트</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('p').mouseover(
+                function () {
+                    $('p').css({background: 'yellow'})
+                },
+            )
+
+            $('p').mouseout(
+                function () {
+                    $('p').css({background: 'pink'})
+                },
+            )
+        })
+    </script>
+</head>
+<body>
+    <p><b>이곳에 마우스를 가져다 대 보세요</b>.</p>
+</body>
+</html>

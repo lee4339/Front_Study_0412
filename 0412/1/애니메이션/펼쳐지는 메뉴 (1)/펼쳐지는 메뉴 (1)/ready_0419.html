@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>어디서나 펼쳐지는 내비게이션</title>
+<script src="jquery-1.7.2.min.js"></script>
+
+<style>
+
+*{	margin:0; padding:0;	}
+
+div#container {
+    display: none;
+    float: left;
+   	width:600px;
+	height:200px;
+	left:0px;
+	top:0px;
+	position:relative;
+}
+				
+div#home {
+	width:50px;
+	height:200px;
+	background:#FF9999;
+	left:0px;
+	top:0px;
+	position:absolute;
+	z-index:2;
+}
+		   
+ul { 
+	width:600px; 
+	height:200px;
+	list-style:none;
+	left:-600px;
+	top:0px;
+	position:absolute;
+	z-index:1;
+}
+	 
+ul li {
+	width:200px;
+	height:200px;
+	float:left;
+	opacity:0.7;
+}
+
+
+
+#container_r {
+    float: right;
+	width:600px;
+	height:200px;
+	right:0px;
+	top:0px;
+	position:relative;
+    overflow: hidden;
+}
+				
+#home_r {
+    float:left;
+	width:50px;
+	height:200px;
+	background:#FF9999;
+	right:0px;
+	top:0px;
+	position:absolute;
+	z-index:2;
+}
+		   
+#menu_r { 
+    float: left;
+	width:600px; 
+	height:200px;
+	list-style:none;
+	left:600px;
+	top:0px;
+	position:absolute;
+	z-index:1;
+}
+	 
+#menu_r li {
+	width:200px;
+	height:200px;
+	float:left;
+	opacity:0.7;
+}
+
+.box{width:150px; height:150px; 
+     background-color:coral;
+     position: relative; top:0; left:0;}
+</style>
+
+</head>
+
+<body>
+
+
+
+<div id="container">
+	<div id = "home">HOME </div>
+  
+	<ul id ="menu">     
+		<li><img src="th_bg1.jpg" /></li>
+		<li><img src="th_bg2.jpg" /></li>
+		<li><img src="th_bg3.jpg" /></li>
+	</ul>
+</div>
+
+
+<div id="container_r">
+    
+	<div id = "home_r">HOME-r </div>
+  
+	<ul id ="menu_r">     
+		<li><img src="th_bg1.jpg" /></li>
+		<li><img src="th_bg2.jpg" /></li>
+		<li><img src="th_bg3.jpg" /></li>
+	</ul>
+   
+</div>
+
+ 
+<div class="box"></div>
+<script>
+  
+
+
+   $("#home").mousemove(function(e){  
+	var pos = e.pageY - 
+	          parseInt($("#container").css("height"))/2+"px";
+	$("#container").css({"top":pos});
+
+   }); 
+         
+   
+
+   $("#home_r").toggle(
+       function(){
+          $("#menu_r").stop().animate({left:"0px"}); 
+       },
+       function(){
+          $("#menu_r").stop().animate({left:"600px"}); 
+       }
+
+   );
+   $("#menu_r li").hover(
+       function(){
+           $(this).animate({opacity:1},300);
+       },
+       function(){
+           $(this).animate({opacity:0.7},300);
+       }
+   );
+
+   $("#home_r").mousemove(function(e){
+      var pos1 = e.pageY - 
+                parseInt($("#container_r").css("height"))/2 + "px"
+      $("#container_r").css({"top":pos1});
+   });
+	 
+   $(".box").mousemove(function(e){
+       var posx = e.pageX - parseInt($(".box").css("width"))/2+"px"
+       var posy = e.pageY - parseInt($(".box").css("height"))/2+"px"
+       $(this).css({"top":posy,"left":posx});
+   }); 
+
+</script>
+</body>
+</html>

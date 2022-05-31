@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .main_mn {
+            width: 150px;
+
+        }
+
+        .main_mn>li {
+            margin-bottom: 1px;
+        }
+
+        .main_mn>li>div {
+            width: 100%;
+            height: 30px;
+            background-color: violet;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .sub_mn {}
+
+        .sub_mn li {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: cadetblue;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul class="main_mn">
+        <li>
+            <div>menu</div>
+            <ul class="sub_mn">
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+            </ul>
+        </li>
+        <li>
+            <div>menu</div>
+            <ul class="sub_mn">
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+            </ul>
+        </li>
+        <li>
+            <div>menu</div>
+            <ul class="sub_mn">
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+            </ul>
+        </li>
+        <li>
+            <div>menu</div>
+            <ul class="sub_mn">
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+                <li><a href="#">s_menu</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            $('.sub_mn').hide();
+            $('.main_mn > li > div').click(function () {
+                if($('.sub_mn').show()) {
+                    $('.sub_mn').hide();
+                }
+                //$(this).next('.sub_mn').show(500);
+                // $(this).next('.sub_mn').slideDown(500);
+                $(this).next('.sub_mn').fadeIn(500);
+            })
+        })
+    </script>
+</body>
+</html>

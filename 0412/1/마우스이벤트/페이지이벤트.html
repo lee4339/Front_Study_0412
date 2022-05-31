@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enterleave이벤트</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$(document).ready() 현재 웹문서 읽어들였을때 준비하고 실행
+            //$(document).resize() 현재 웹문서 화면의 크기 바뀔때 이벤트
+            //$(document).scroll() 현재 웹문서 스크롤이 움직일때
+            //$(document).load() 현재 웹문서내에 특정요소 읽어들였을때 준비하고 실행
+            $('p').mouseenter(
+                function () {
+                    $('p').css({background: 'yellow'})
+                },
+            )
+
+            $('p').mouseleave(
+                function () {
+                    $('p').css({background: 'pink'})
+                },
+            )
+        })
+    </script>
+</head>
+<body>
+    <p><b>이곳에 마우스를 가져다 대 보세요</b>.</p>
+</body>
+</html>
