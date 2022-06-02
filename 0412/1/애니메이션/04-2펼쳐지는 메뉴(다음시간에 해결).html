@@ -51,19 +51,40 @@
     <script>
         $(document).ready(function () {
 
-            $('#home').toggle(
-                function () {
+            // $('#home').toggle(
+            //     function () {
+            //         $('ul').stop().animate({ left: "50px" }, 500);
+            //     },
+            //     function () {
+            //         $('ul').stop().animate({ left: "-600px" }, 500);
+            //     }
+            // )
+
+            //#home 상태값
+            var i = 0;
+
+            $('#home').click(function () {
+                if (i == 0) {
                     $('ul').stop().animate({ left: "50px" }, 500);
-                },
-                function () {
+                    i = 1; //조건거짓으로하면 다음 식에서 거짓을 실행
+                }else {
                     $('ul').stop().animate({ left: "-600px" }, 500);
+                    i = 0; // 조건을 참으로 해놓으면 다음 식에서 참을 실행
                 }
-            )
+            });
+
             $('#home').mousemove(function (e) {
                 var pos = e.pageY - parseInt($('#container').css("height")) / 2 + "px"
                 $('#container').css({ top: pos })
             });
 
+            $('ul#menu li').hover(
+                function () {
+                    $(this).animate({ opacity : 1 }, 300)
+                }, function () {
+                    $(this).animate({ opacity : 0.7 }, 300)
+                }
+            );
 
 
         });

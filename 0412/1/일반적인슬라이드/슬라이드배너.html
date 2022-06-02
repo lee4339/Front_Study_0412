@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/slidebanner.js"></script> 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+
+
+        #main_img {
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        #imgs {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgs li {
+            position: absolute;
+            width: 100%;
+            height: 400px;
+        }
+
+        #imgs li.img01 {
+            top: 0;
+            left: 0;
+            background-color: yellowgreen;
+        }
+
+        #imgs li.img02 {
+            top: 0;
+            left: 100%;
+            background-color: violet;
+        }
+
+        #imgs li.img03 {
+            top: 0;
+            left: 200%;
+            background-color: tomato;
+        }
+
+        .btns {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -32.5px;
+            z-index: 9999;
+        }
+
+        .btns li {
+            float: left;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .btns li a {
+            display: block;
+            text-align: center;
+            line-height: 15px;
+            width: 100%;
+            height: 15px;
+            background-color: #fff;
+            font-size: 12px;
+        }
+
+        .btns li.on a { /* 떨어뜨리면 안됨*/
+            background-color: teal;
+            color: #fff;
+        }
+
+        .btns li a:hover {
+            background-color: aquamarine;
+        }
+
+        #btn_g {
+            margin: 0 auto;
+            width: 600px;
+            padding: 10px 0;
+        }
+
+        #btn_g>div {
+            float: left;
+            width: 100px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #btn_g>div:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_img">
+        <div id="imgs">
+            <ul>
+                <li class="img01">img01</li>
+                <li class="img02">img02</li>
+                <li class="img03">img03</li>
+            </ul>
+        </div>
+        <ul class="btns">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+        </ul>
+        <!-- <div class="prev">prev</div> -->
+        <!-- <div class="next">next</div> -->
+    </div>  
+</body>
+</html>

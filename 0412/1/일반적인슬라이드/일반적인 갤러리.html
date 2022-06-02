@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+
+        #all {
+            width: 100%;
+            height: 400px;
+            padding-top: 50px;
+            border: 5px solid #000;
+        }
+
+        #slide {
+            margin: 0 auto;
+            width: 600px;
+            height: 350px;
+            border: 3px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgs {
+            height: 350px;
+            position: relative;
+        }
+
+        #imgs>img {
+            position: absolute;
+        }
+
+        #imgs>img.img01 {
+            top: 0;
+            left: 0;
+        }
+
+        #imgs>img.img02 {
+            top: 0;
+            left: 600px;
+        }
+
+        #imgs>img.img03 {
+            top: 0;
+            left: 1200px;
+        }
+
+        #imgs>img.img04 {
+            top: 0;
+            left: 1800px;
+        }
+
+        .btns {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .btns li {
+            float: left;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #000;
+            margin-right: 10px;
+        }
+
+        .btns li a {
+            display: block;
+            text-align: center;
+            line-height: 15px;
+            width: 100%;
+            height: 15px;
+            background-color: #fff;
+            font-size: 12px;
+        }
+
+        .btns li.on a { /* 떨어뜨리면 안됨*/
+            background-color: teal;
+            color: #fff;
+        }
+
+        .btns li a:hover {
+            background-color: aquamarine;
+        }
+
+        #btn_g {
+            margin: 0 auto;
+            width: 600px;
+            padding: 10px 0;
+        }
+
+        #btn_g>div {
+            float: left;
+            width: 100px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #btn_g>div:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div id="slide">
+            <div id="imgs">
+                <img src="./images/slide1.jpg" class="img01" alt="">
+                <img src="./images/slide2.jpg" class="img02" alt="">
+                <img src="./images/slide3.jpg" class="img03" alt="">
+                <img src="./images/slide4.jpg" class="img04" alt="">
+            </div>
+            <ul class="btns">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+            </ul>
+        </div>
+        <div id="btn_g">
+            <div class="prev">prev</div>
+            <div class="next">next</div>
+        </div>   
+    </div>
+    <script>
+        $('.btns > li').eq(0).addClass('on'); // 선택해서 스타일 적용
+        var current = 0; // 시작했을때 보이는 이미지의 인덱스 값
+        var setIntervalid;
+
+        $('.btns > li').click(function (e) {
+            e.preventDefault(); // a태그 이벤트를 초기화
+            $('.btns > li').removeClass('on'); // 선택해서 스타일 
+            //$(this).addClass('on'); //버튼을 누르면 스타일 적용 / 애니메이션 전에
+
+            var i = $(this).index();
+            //console.log(n);
+            slide(i);
+        }); 
+
+        $('.prev').click(function () {
+            if(current > 0) { // 3 2 1
+                $('.btns > li').removeClass('on');
+                current = current - 1;
+                slide(current);
+            } else {
+                current = 3;
+                $('.btns > li').removeClass('on');
+                slide(current);
+            }
+        });
+
+        $('.next').click(function () {
+            if(current < 3) { // 0 1 2 3
+                $('.btns > li').removeClass('on');
+                current = current + 1;
+                slide(current);
+            } else {
+                current = 0;
+                $('.btns > li').removeClass('on');
+                slide(current);
+            }
+        });
+
+        $('#all').hover(
+            function () {
+                clearInterval(setIntervalid); // 기존에 자동실행을 중지
+            },
+            function () {
+                move(); // 자동실행이 중지되었다가 다시 재실행하기 위해서 함수 재호출
+            }
+        );
+
+        move(); // 자동실행을 위해서 함수 호출
+        function move() {
+            // setInterval(실행함수(), 시간(1000)) / 1초 간격으로 함수를 반복실행
+            // clearInterval(setInterval(실행함수(), 시간(1000)))
+            // clearInterval은 setInterval()를 중지
+            // setTimeout(실행함수(), 시간(1000)) /  1초가 지나면 함수를 실행(한번실행)
+            setIntervalid = setInterval(function () {
+                current = current + 1; // 1 2 3 0
+                if(current == 4) {
+                    current = 0;
+                }
+                $('.btns > li').removeClass('on');
+                slide(current);
+            }, 3000);
+        }
+
+        function slide(n) {
+            var pos = 600 * (-n) + "px";
+            current = n;
+            $('#imgs').animate({ left: pos }, 500, function() {
+                $('.btns > li').eq(n).addClass('on'); // 애니메이션 후에 스타일 적용됨
+            });
+        }
+
+        // 제이쿼리 스타일시트 적용하는 방법
+        // $(대상).css('속성', '속성값')
+        // $(대상).css({속성: '속성값', 속성: '속성값'});
+        // $(대상).addClass('클래스명'); -> 반드시 스타일 선언을 하고 해야함
+        // $(대상).removeClass('클래스명');
+    </script> 
+</body>
+</html>
