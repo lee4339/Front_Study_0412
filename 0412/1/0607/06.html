@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+           // append(): 대상의 자식요소들중에 뒷부분에 태그를 추가
+           // prepend(): 대상의 자식요소들중에 앞부분에 태그를 추가
+           // before(): 대상의 형제요소로 대상 앞에 태그를 추가
+           // after(): 대상의 형제요소로 대상 뒤에 태그를 추가
+           // remove(): 태그 삭제
+           // clone(): 태그를 복제 ***변수에다가 저장을 한 후 태그추가하는 메소드 등
+
+           // $('.main > li:eq(2) > ul')
+           $('.main > li').eq(2).find('ul').append('<li style="color:red">5</li>');
+           $('.main > li').eq(2).find('ul').prepend('<li style="color:blue">0</li>');
+
+           $('.main > li').eq(2).find('ul').before('<li style="color:red">100</li>');
+           $('.main > li').eq(2).find('ul').after('<li style="color:blue">200</li>');
+
+           //$('.main > li').eq(2).find('ul')
+           //$('.main > li').eq(2).find('ul').remove();
+           // $('.main > li').eq(2).remove();
+
+        //    var cloneEl = $('.main > li').eq(2).find('ul').clone();
+        //    $('.main > li').eq(5).append(cloneEl);
+            var el = $('.main > li').eq(2).find('ul'); 
+            //el.appendTo($('.main > li').eq(0)); // 형제 요소 뒤에 위치
+            //el.prependTo($('.main > li').eq(0)); // 형제 요소 앞에 위치
+            // 복사될 대상.appendTo(복사될 위치)
+        });
+
+    </script>
+
+    <style>
+        
+
+    </style>
+</head>
+
+<body>
+        <ul class="main">
+            <li>1</li>
+            <li>2</li>
+            <li>3
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+</body>
+</html>

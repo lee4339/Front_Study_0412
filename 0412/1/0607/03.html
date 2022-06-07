@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // next(): 선택된 대상요소에 다음에 오는 요소를 의미
+            // nextAll(): 선택된 대상요소에 다음에 오는 모든 요소를 의미
+            // $('.li3').next('li').css({ color : 'red'});
+            // $('.li3').nextAll('li').css({ color : 'red'});
+
+            //$(대상).find('자식요소'); 대상안에 있는 자식요소를 의미
+            // $('ul.main li').eq(3).find('.sub').css({ color : 'red' });
+
+            // $('.sub li').parent('ul').css({ color : 'red' });
+            // $('.sub').parent().parent('ul').css({ color : 'red' });
+            $('.sub').parents('.main').css({ color : 'red' });
+
+            
+
+            
+        });
+    </script>
+</head>
+
+<body>
+    <ul class="main">
+        <li>1</li>
+        <li>2</li>
+        <li class="li3">3 ( 여기를 바꿔 주세요. )</li>
+        <li>
+            <ul class="sub">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+</html>

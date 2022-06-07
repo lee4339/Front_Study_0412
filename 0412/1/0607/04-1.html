@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $(대상).width();         대상 가로값
+            // $(대상).height();        대상 세로값
+            // $(대상).innerWidth();    대상 가로값(패딩값포함 가로값)
+            // $(대상).innerHeight();   대상 세로값(패딩값포함 세로값)
+            // $(대상).outerWidth();    대상 가로값(마진값포함 가로값)
+            // $(대상).outerHeight();   대상 세로값(마진값포함 세로값)
+
+            $(window).resize(function() {
+                $('#width').text($('#wrapper').width());    
+                $('#height').text($('#wrapper').height()); 
+
+                $('#innerWidth').text($('#wrapper').innerWidth());    
+                $('#innerHeight').text($('#wrapper').innerHeight());    
+            })
+            
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body > span {
+            font-size: 30px;
+        }
+
+        #wrapper {
+            border: 5px solid #000;
+            padding: 30px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <span>박스의 width = </span><span id="width">0</span><br>
+        <span>박스의 height = </span><span id="height">0</span><br>
+        <span>박스의 innerWidth = </span><span id="innerWidth">0</span><br>
+        <span>박스의 innerHeight = </span><span id="innerHeight">0</span><br>
+        <span>박스의 outerWidth = </span><span id="outerWidth">0</span><br>
+        <span>박스의 outerHeight = </span><span id="outerHeight">0</span><br>
+    </div>
+</body>
+</html>

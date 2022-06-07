@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //$(대상).메소드()
+            // eq(): 같은 요소에서 몇번째를 의미
+            // index() 대상요소가 형제요소에서 몇번를 의미
+            // $('ul li').css({ color: 'red'});
+            // $('ul li').eq(2).css({ color: 'red'});
+            // var i = $('ul li.li3').index();
+            // console.log(`i는 ${i}번입니다.`);
+
+            // $('ul li').first().css({color: 'red'}); / 첫번째
+            // $('ul li').last().css({color: 'blue'}); / 마지막
+
+            // filter('조건') -> 조건이 맞는 값에 적용
+            // $('ul li').filter('.li3').css({color :'red'});
+
+            // not('조건') -> 조건의 나머지값들에 적용
+            // $('ul li').not('.li3').css({color :'red'});
+
+            //each() 순환처리문
+            $('ul li').css({color :'red'});
+
+            $('ul li').each(function () {
+                $(this).css({color :'red'});
+            });
+
+            
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="li3">3 ( 여기를 바꿔 주세요. )</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$(대상).html(); 은 대상을 html형태를 의미
+            //$(대상1).html($(대상2).html()); 은 대상2를 html형식으로 갖고와서 대상1에 대상2를 html형식으로 적용한다는 의미
+            // $('#wrap').html($('.box').html()) /html에 html 넣어줌
+            
+            //$(대상).text(); 은 대상을 text형태를 의미
+            //$(대상1).text($(대상2).text()); 은 대상2를 text형식으로 갖고와서 대상1에 대상2를 text형식으로 적용한다는 의미
+            $('#wrap').text($('.box').text()) 
+            
+        });
+
+    </script>
+
+    <style>
+        #wrap {
+            width: 100%;
+            padding: 20px;
+            border: 3px solid #000;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+    </div>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+</html>

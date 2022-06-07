@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./js/jquery.js"></script>
-    <script src="./js/slidebanner.js"></script> 
+    <script src="./js/slidebanner_op.js"></script> 
 
     <style>
         * {
@@ -46,18 +46,21 @@
         #imgs li.img01 {
             top: 0;
             left: 0;
+            z-index: 300;
             background-color: yellowgreen;
         }
 
         #imgs li.img02 {
             top: 0;
-            left: 100%;
+            left: 0;
+            z-index: 200;
             background-color: violet;
         }
 
         #imgs li.img03 {
             top: 0;
-            left: 200%;
+            left: 0;
+            z-index: 100;
             background-color: tomato;
         }
 
@@ -119,37 +122,6 @@
         #btn_g>div:hover {
             background-color: #ccc;
         }
-
-        .prev {
-            position: absolute;
-            top: 175px;
-            left: 100px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 1px solid #ccc;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-        }
-        .next {
-            position: absolute;
-            top: 175px;
-            right: 100px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 1px solid #ccc;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: #000;
-            color: #ccc;
-        }
     </style>
 </head>
 
@@ -167,8 +139,8 @@
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
         </ul>
-        <div class="prev">prev</div>
-        <div class="next">next</div>
+        <!-- <div class="prev">prev</div> -->
+        <!-- <div class="next">next</div> -->
     </div>  
 </body>
 </html>
