@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        .ball {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .on {
+            transform: scale(5);
+            background-color: yellowgreen;
+        }
+
+        .status {
+            margin-top: 150px;
+        }
+
+
+    </style>
+
+    <script>
+        'use strict'
+        window.addEventListener('load', function () {
+            
+            const body = document.body;
+            const newNode = document.createElement('div'); // 태그 생성
+            const ball = document.querySelector('.ball');
+
+
+            newNode.setAttribute("class", "status"); //클래스속성을 추가
+            newNode.innerText = "wating event"; //추가된 태그에 내용넣기
+
+            body.appendChild(newNode); //태그 추가
+
+            ball.addEventListener('mouseover', function () {
+                newNode.innerText = "mouseover event";
+            });
+
+            ball.addEventListener('mouseout', function () {
+                newNode.innerText = "wating event";
+            });
+
+            ball.addEventListener('click', function () {
+                newNode.innerText = "click event";
+            });
+
+            ball.addEventListener('mousedown', function () {
+                newNode.innerText = "mousedown event";
+            });
+            ball.addEventListener('mouseup', function () {
+                newNode.innerText = "mouseup event";
+            });
+
+            
+            
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+</body>
+</html>

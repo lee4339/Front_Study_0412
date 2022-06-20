@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            padding: 10px;
+            border: 2px solid #ccc;
+        }
+
+        #caption {
+            position: relative;
+            padding: 10px;
+            color: #fff;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gallery">
+        <div class="menu">
+            <a href="images/pic1.jpg" title="image1"><img src="images/th_pic1.jpg" /></a>
+            <em>Lorem Ipsum is simply dummy text of the pdrinting and typesetting industry.</em>
+            
+            <a href="images/pic2.jpg" title="image2"><img src="images/th_pic2.jpg" /></a>
+            <em>Lorem Ipsum is simply dummy tely dummy thely dummy tegxt of thely try. Sed facilisis, sem a luctus bibendum, dui
+                risus pellentesque velit, quis tempor magna sem vel justo. Etiam eget ipsum ante.</em>
+            
+            <a href="images/pic3.jpg" title="image3"><img src="images/th_pic3.jpg" /></a>
+            <em>Lorem Ipsum is simply dummy.</em>
+        </div>
+        <div class="l_img">
+            <img src="./images/pic1.jpg" alt="images1" />
+        </div>
+    </div>
+    <script>
+        $('.menu em').hide()
+
+        $('.menu a').click(function (e) {
+            e.preventDefault(); // a태그 사용시 무조건 적용
+            var path = $(this).attr('href');
+            
+            if($('#caption')){
+                $('#caption').remove();
+
+            }
+
+            if(path != $(".l_img img").attr('src ')){
+            $(".l_img img").attr({src: path});
+            $(".l_img img").css({opacity:0})
+                           .stop()
+                           .animate({opacity:1}, 1000);
+            }
+
+            //노드추가(html)
+            var msg = $(this).next('em').text();
+
+            $(".l_img").append('<div id="caption"></div>');
+            $("#caption").text(msg);
+
+            var posy = $("#caption").height() + 27
+            $("#caption").animate({top: "-" + posy + "px"});
+
+        });
+    </script>
+</body>
+</html>

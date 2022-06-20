@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드교체</title>
+</head>
+<body>
+    <h2>노드교체</h2>
+    <div id="parent">
+        <p id="first">HTML</p>
+        <p>CSS</p>
+        <p>JavaScript</p>
+    </div>
+    <p id="second">REACT</p>
+    <hr/>
+    <p id="text">제가 좋아하는 과일은 사과입니다</p>
+
+    <button onclick="changeNode()">요소노드교체</button>
+    <button onclick="changeText()">텍스트노드교체</button>
+
+    <script>
+        'use strict';
+
+        const changeNode = () => {
+            const parent = document.getElementById('parent');
+            const first = document.getElementById('first');
+            const second = document.getElementById('second');
+            parent.replaceChild(second, first);
+        }
+        const changeText = () => {
+            const text = document.getElementById('text').firstChild;
+            text.replaceData(12, 2, '메론');
+        }
+
+    </script>
+</body>
+</html>

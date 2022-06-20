@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<SCRIPT src="js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+
+<style>
+*{ margin:0; padding:0;}
+body{ margin:0; padding:0; overflow-y: hidden}
+
+#all{ width:100%; height:100vh; position:relative;}
+#box1{ position:absolute; left:0; top:0;
+       width:100%; height:100vh;
+       background-color:#333;}
+#box2{ position:absolute; left:100%; top:0;
+       width:100%; height:100vh;
+       background-color:#990;}
+#box3{ position:absolute; left:200%; top:0;
+	   width:100%; height:100vh;
+       background-color:#3CF;}	   
+#box4{  position:absolute; left:300%; top:0;
+        width:100%; height:100vh;
+       background-color:#FC0;}	   
+#box5{ position:absolute; left:400%; top:0;
+	   width:100%; height:100vh;
+       background-color:#F0F;}	   
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript">
+$(document).ready(
+
+  function() { 
+    $("#all").niceScroll({
+		cursorcolor:"#777",
+		cursorwidth:5,
+		cursoropacitymin:1,
+		scrollspeed:100,
+		cursorborderradius:'0',
+		mousescrollstep:40,
+		horizrailenabled:true,
+		cursoropacitymin:0,
+		cursoropacitymax:1,
+		background:"#c1c1c1",
+		cursorborder:"none",
+		autohidemode:false,
+		boxzoom:true,
+		zindex:99999,
+		horizrailenabled:true
+
+	});
+  }
+  /*
+cursorcolor - 커서 색상을 16 진수로 변경합니다. 기본값은 "# 000000"입니다.
+cursoropacitymin - 불투명도 변경 커서가 비활성 상태 (스크롤바의 "숨김"상태), 범위는 1에서 0까지, 기본값은 0 (숨김)입니다.
+cursoropacitymax - 불투명도 변경 매우 커서가 활성화되어 있습니다 (스크롤바의 "가시"상태). 범위는 1에서 0까지이며, 기본값은 1입니다 (전체 불투명도).
+cursorwidth - 커서의 너비 (픽셀 단위), 기본값은 5입니다 ( "5px"도 쓸 수 있음).
+cursorborder - 커서 테두리의 CSS 정의입니다. 기본값은 "1px solid #fff"입니다.
+cursorborderradius - 커서의 테두리 반경, 기본값은 "4px"입니다.
+zindex - 스크롤바 div의 Z- 인덱스 변경, 기본값은 9999입니다.
+scrollspeed - 스크롤 속도, 기본값은 60입니다.
+mousescrollstep - 마우스 휠로 스크롤 속도, 기본값은 40 (픽셀)입니다.
+touchbehavior - 데스크톱 컴퓨터의 터치 장치처럼 커서 드래그 스크롤링 사용 (기본값 : false)
+hwacceleration - 지원되는 경우 하드웨어 가속 스크롤 사용 (기본값 : true)
+boxzoom - 상자 내용을 확대 할 수있게합니다 (기본값 : false).
+dblclickzoom - (boxzoom = true 인 경우에만 해당) 상자를 두 번 클릭하면 줌이 활성화됩니다 (기본값 : true).
+gesturezoom - (boxzoom = true 및 터치 장치 인 경우에만) 피치 아웃 / 인 온 상자에서 줌이 활성화됩니다 (기본값 : true).
+grabcursorenabled, touchbehavior = true로 div의 "grab"아이콘 표시 (기본값 : true)
+자동 숨기기 모드, 스크롤 막대의 숨김 방법, true = 기본값 / "커서"= 커서 만 숨김 / false = 숨기지 않음
+배경, 레일 배경에 대한 CSS 변경, 기본값은 ""
+iframeautoresize,로드 이벤트에서 iframe 자동 크기 조정 (기본값 : true)
+cursorminheight, 픽셀 단위로 최소 커서 높이 설정 (기본값 : 20)
+preservenativescrolling을 사용하면 네이티브 스크롤 영역을 마우스로 스크롤하거나 마우스 휠 이벤트를 버블 링 할 수 있습니다 (기본값 : true)
+railoffset을 사용하면 레일 위치에 대해 위쪽 / 왼쪽 오프셋을 추가 할 수 있습니다 (기본값 : false).
+bouncescroll, 콘텐츠의 끝에서 모바일처럼 (단지 hw accell) 스크롤 바운스 가능 (기본값 : false)
+spacebarenabled, 스페이스 바를 눌렀을 때 페이지 아래로 스크롤 가능 (기본값 : true)
+레일 파딩, 레일 바용 패딩 설정 (기본값 : {위쪽 : 0, 오른쪽 : 0, 왼쪽 : 0, 아래쪽 : 0})
+disableoutline, 크롬 브라우저의 경우 nicescroll을 사용하여 div를 선택할 때 윤곽선을 비활성화합니다 (오렌지색의 hightlight) (기본값 : true).
+horizrailenabled, nicescroll은 가로 스크롤을 관리 할 수 ​​있습니다 (기본값 : true).
+railalign, 수직 레일 정렬 (defaul : "right")
+railvalign, 수평 레일 정렬 (defaul : "bottom")
+enabletranslate3d, nicescroll은 내용을 스크롤하기 위해 css translate를 사용할 수 있습니다 (기본값 : true).
+enablemousewheel, nicescroll은 마우스 휠 이벤트를 관리 할 수 ​​있습니다 (기본값 : true).
+enablekeyboard, nicescroll은 키보드 이벤트를 관리 할 수 ​​있습니다 (기본값 : true).
+smoothscroll, 쉽게 움직이는 스크롤 (기본값 : true)
+sensitiverail, 레일을 클릭하여 스크롤합니다 (기본값 : true).
+마우스 캡션 잠금 API를 사용할 수 있습니다 (개체 드래그에서 동일한 문제) (기본값 : true)
+cursorfixedheight, 픽셀 단위의 커서 고정 높이 설정 (기본값 : false)
+hidecursordelay, 마이크로 초 단위로 지연을 설정하여 스크롤바를 페이드 아웃 (기본값 : 400)
+directionlockdeadzone, 방향 잠금 활성화 (기본값 : 6)의 데드 존 (픽셀)
+nativeparentscrolling, 내용의 하단을 감지하고 네이티브 스크롤이 부모처럼 스크롤하도록합니다 (기본값 : true).
+선택 스크롤을 활성화하고 선택 텍스트 (기본값 : true) 일 때 내용의 자동 스크롤 사용
+  
+  */
+); 
+</script>
+<div id="all" >
+ <div id="box1"></div>
+ <div id="box2"></div>
+ <div id="box3"></div>
+ <div id="box4"></div>
+ <div id="box5"></div>
+</div>
+
+</body>
+</html>

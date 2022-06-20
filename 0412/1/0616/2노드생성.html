@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드생성</title>
+</head>
+<body>
+    <h2>노드생성</h2>
+    <p id="el">새로운 문장이 이 문장 앞에 추가됩니다</p>
+    <p id="attr">이 단락에 새로운 속성이 추가됩니다</p>
+    <p id="text"></p>
+
+    <button onclick="createNode()">요소 노드 생성</button>
+    <button onclick="createAttr()">속성 노드 생성</button>
+    <button onclick="createText()">텍스트 노드 생성</button>
+
+    <script>
+        'use strict';
+
+        const createNode = function () {
+            const elNode = document.getElementById('el');
+            const newNode = document.createElement('p'); // <p></p>
+            newNode.innerHTML = "<b>새로운 요소입니다</b>";
+            //<p><b>새로운 요소입니다</b></p>
+            document.body.insertBefore(newNode, elNode);
+        }
+
+        const createAttr = () => {
+            const attr = document.getElementById('attr');
+            const newAttr = document.createAttribute('style'); //style=''
+            newAttr.value = 'color:white; background-color:deeppink;';
+            attr.setAttributeNode(newAttr);
+        }
+
+        const createText = () => {
+            const textNode = document.getElementById('text');
+            const newText = document.createTextNode('새로운 텍스트입니다.');
+            textNode.appendChild(newText); 
+        }
+    </script>
+</body>
+</html>

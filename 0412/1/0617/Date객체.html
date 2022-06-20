@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        console.log(new Date);
+        console.log(new Date(21, 4, 4)); //1921, 5, 4 (월은 0부터 시작)
+        console.log(new Date(2021, 3, 4, 11 ,56, 0));
+
+        const date = new Date();
+        console.log(`현재 년도: ${date.getFullYear()}`);
+        console.log(`현재 월: ${date.getMonth() + 1}`);
+        console.log(`현재 일: ${date.getDate()}`);
+        
+        console.log(`현재 시: ${date.getHours()}`);
+        console.log(`현재 분: ${date.getMinutes()}`);
+        console.log(`현재 초: ${date.getSeconds()}`);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .ball {
+            position: absolute;
+            left: 50px;
+            top: 250px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .on {
+            transform: scale(2);
+        }
+
+
+    </style>
+
+    <script>
+        'use strict'
+        window.addEventListener('load', function () {
+            const buttonList = document.querySelectorAll("button");
+            //console.log(buttonList);
+            const ball = document.querySelector('.ball');
+            let x = 50;
+            let y = 250;
+
+            for(let i = 0; i < buttonList.length; i++) {
+                buttonList[i].addEventListener('click', function (e) {
+                    let idName = e.target.id;
+
+                    // if (idName == "left") {
+                    //     x = x - 20;
+                    // } else if(idName == "right") {
+                    //     x = x + 20;
+                    // } else if(idName == "top") {
+                    //     y = y - 20;
+                    // } else if(idName == "bottom") {
+                    //     y = y + 20;
+                    // }
+
+                    switch (idName) {
+                        case "left":
+                            x = x - 20;
+                            break;
+                        case "right":
+                            x = x + 20;
+                            break;
+                        case "top":
+                            y = y - 20;
+                            break;
+                        case "bottom":
+                            y = y + 20;
+                            break;
+                    }
+
+                    ball.style.left = x + "px";
+                    ball.style.top = y + "px";
+                })
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <button id="left">left</button>
+        <button id="right">right</button>
+        <button id="top">top</button>
+        <button id="bottom">bottom</button>
+        <div class="ball"></div>
+    </div>
+</body>
+</html>

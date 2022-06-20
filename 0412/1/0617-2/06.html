@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+
+        }
+
+        body {
+            padding: 50px;
+        }
+
+
+
+    </style>
+
+    <script>
+        'use strict'
+        window.addEventListener('load', function () {
+            const target1 = document.querySelector('target1');
+            const target2 = document.querySelector('target2');
+            const trigger = document.querySelector('trigger');
+
+            target1.addEventListener('focusin', function(e) {
+                e.target.value = 'target1 focus event';
+            });
+            trigger.addEventListener('click', function() {
+                target2.focus();
+                target2.value = 'target2 focus event';
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input class="target1" type="text" value="input1">
+            <input class="target2" type="text" value="input2">
+        </form>
+        <div class="trigger">Trigger the handler.</div>
+    </div>
+</body>
+</html>
