@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #gnb {
+            position: fixed;
+            top: 50%;
+            right: 50px;
+            width: 16px;
+            height: 180px;
+        }
+
+        #gnb li {
+            margin-top: 15px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid #000;
+            box-sizing: border-box;
+        }
+
+        #gnb li.act {
+            background-color: #000;
+        }
+
+        #gnb li a {
+            display: block;
+            width: 16px;
+            height: 16px;
+            text-indent: -9999px;
+        }
+
+        section {
+            padding: 20px;
+            font-size: 50px;
+            border-bottom: 2px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            //문서에서 객체 추출
+            let h; //화면높이
+            let n = 0; //메뉴의 인덱스값
+            let target = 0; //목표 위치값
+            let yoffset = 0; //현재 위치값
+            let timer = 0; //현재 움직이는 타이머 변수
+            let moving = false;//움직이는 상태 변수
+            const menuLi = document.querySelectorAll('#gnb li');
+            const pageLi = document.querySelectorAll(".page");
+            const body = document.body;
+
+            //화면이 읽어 온후 스크롤 위치를 자동으로 위로 이동
+            setTimeout(function () {
+                menuLi[0].classList.add('act');
+                yoffset = window.pageYOffset;
+                target = 0;
+                //window.scrollTo(0, 0)
+                // window.scrollTo(가로좌표, 세로좌표)
+                //애니함수호출
+                aniTimer(timer, yoffset, target)
+            }, 150)
+
+            function aniTimer(timer, yoffset, target) {//타이머, 이전y값, 다음y값
+                timer = setInterval(function () {
+                    if (target < yoffset) {//상하방향을 설정하는 조건문
+                        if (Math.abs(target - yoffset) > 5) {//애니메이션의 시작
+                            yoffset -= 5; 5
+                        } else {//애니메이션의 끝
+                            yoffset = target//최종위치
+                            moving = false;//
+                            clearInterval(timer);
+
+                            //클릭한 버튼에 스타일적용
+                            for (j = 0; j < menuLi.length; j++) {
+                                //앞에 사용한 버튼 반복문 변수를 종속
+                                if (j == n) {
+                                    menuLi[j].classList.add('act');
+                                } else {
+                                    menuLi[j].classList.remove('act');
+                                }
+
+                            }
+                        }
+                    } else {
+                        if (Math.abs(target - yoffset) > 5) {//애니메이션의 시작
+                            yoffset += 5;
+                        } else {//애니메이션의 끝
+                            yoffset = target//최종위치
+                            moving = false;//
+                            clearInterval(timer);
+
+                            //클릭한 버튼에 스타일적용
+                            for (j = 0; j < menuLi.length; j++) {
+                                //앞에 사용한 버튼 반복문 변수를 종속
+                                if (j == n) {
+                                    menuLi[j].classList.add('act');
+                                } else {
+                                    menuLi[j].classList.remove('act');
+                                }
+
+                            }
+                        }
+                    }
+                    window.scrollTo(0, yoffset);
+                }, 1)
+            }
+
+
+
+            window.addEventListener('resize', init);
+            //화면 크기 변화시 높이 재설정
+
+            init();
+            //화면높이 설정함수
+            function init() {
+                h = window.innerHeight;
+                for (let i = 0; i < pageLi.length; i++) {
+                    pageLi[i].style.height = h + 'px'
+                }
+            }
+
+            //버튼 클릭시 콘텐츠 이동
+            for (let j = 0; j < menuLi.length; j++) {
+                menuLi[j].index = j;
+                menuLi[j].addEventListener('click', (e) => {
+                    e.preventDefault();
+                    yoffset = window.pageYOffset;
+                    n = e.currentTarget.index;//클릭한 버튼 인덱스값
+                    h = window.innerHeight;
+                    //console.log('n값' + n)
+                    //target = pageLi[n].offsetTop;//목표 위치의 상단으로 타겟설정
+                    target = n * h;
+
+                    aniTimer(timer, yoffset, target);
+                    //window.scrollTo(0, target);//타겟으로 이동
+                })
+
+            }
+
+            //스크롤 위치에 메뉴에 스타일 적용
+            document.addEventListener('scroll', function (e) {
+                yoffset = window.pageYOffset;
+
+                if (yoffset < pageLi[1].offsetTop) {
+                    n = 0;//버튼에 인덱스 값을 설정
+                } else if (yoffset >= pageLi[1].offsetTop && yoffset < pageLi[2].offsetTop) {
+                    n = 1;
+                } else if (yoffset >= pageLi[2].offsetTop && yoffset < pageLi[3].offsetTop) {
+                    n = 2;
+                } else if (yoffset >= pageLi[3].offsetTop && yoffset < pageLi[4].offsetTop) {
+                    n = 3;
+                } else if (yoffset >= pageLi[4].offsetTop && yoffset < pageLi[5].offsetTop) {
+                    n = 4;
+                } else {
+                    n = 5;
+                }
+                //위에서 설정된 인덱스값으로 해당버튼에 스타일 적용
+                for (j = 0; j < menuLi.length; j++) {
+                    //앞에 사용한 버튼 반복문 변수를 종속
+                    if (j == n) {
+                        menuLi[j].classList.add('act');
+                    } else {
+                        menuLi[j].classList.remove('act');
+                    }
+
+                }
+            })
+
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <header id="gnb">
+        <ul>
+            <li><a href="">menu1</a></li>
+            <li><a href="">menu2</a></li>
+            <li><a href="">menu3</a></li>
+            <li><a href="">menu4</a></li>
+            <li><a href="">menu5</a></li>
+            <li><a href="">menu6</a></li>
+        </ul>
+    </header>
+    <section id="index" class="page">index</section>
+    <section id="page1" class="page">page1</section>
+    <section id="page2" class="page">page2</section>
+    <section id="page3" class="page">page3</section>
+    <section id="page4" class="page">page4</section>
+    <section id="page5" class="page">page5</section>
+</body>
+
+</html>

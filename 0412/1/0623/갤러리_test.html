@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul, 
+        li {
+            list-style: none;
+        }
+        .container {
+            margin-top: 35px;
+            min-width: 440px;
+
+        }
+
+        .controller {
+            padding-top: 20px;
+        }
+
+        .controller li {
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        .controller li:first-child {
+           margin-left: 0px;
+        }
+
+        .controller li a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: yellowgreen;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .controller li.on a {
+            width: 50px;
+            background-color: violet;
+            
+        }
+
+        .picture {
+            position: relative;
+            margin-top: 30px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .picture ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            width: 2400px;
+            height: 400px;
+            transition: left 0.4s;
+        }
+
+        .picture li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            float: left;
+            width: 400px;
+            height: 400px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .picture li.act {
+            opacity: 1;
+        }
+
+        .picture li div {
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+
+    <script>
+        window.addEventListener('load', () => {
+            //객체선언
+            const galler = document.querySelector(".picture ul");
+            const gallerList = document.querySelectorAll(".picture li");
+            const liList = document.querySelectorAll(".controller li");
+
+            gallerList[0].style.opacity = 1; // 처음에 보일 이미지
+
+           // liList[0].style.backgroundColor = 'red';
+
+            for(let i = 0; i < liList.length; i++) { //liList 배열이기떄문 선택할려면 for문 사용
+                let n = 0; //현재 클릭된 버튼에 인덱스값이 초기값설정
+                liList[i].index = i; //메뉴의 인덱스 값을 미리 설정
+
+                liList[i].addEventListener('click', (e) => {
+                    e.preventDefault();//a태그의 이벤트 상실
+                    n = e.currentTarget.index;
+                    // e.target // == $(this).index() // 자식요소에 이벤트를 적용하는 대상
+                    ///e.currentTarget //부모요소 이벤트 적용하는 대상
+
+                    for(let j = 0; j < liList.length; j++) { 
+                        //클릭된 버튼을 비교하고 스타일을 설정하기 위한 반복문
+                        if (j == n) {
+                            liList[j].classList.add("on");
+                            gallerList[j].classList.add("act");
+                        } else {
+                            liList[j].classList.remove("on");
+                            gallerList[j].classList.remove("act");
+                            
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <ul class="controller">
+            <li class="on"><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+        <div class="picture">
+            <ul>
+                <li>
+                    <div class="box1" style="background-color: red;">0</div>
+                </li>
+                <li>
+                    <div class="box2" style="background-color: orange;">1</div>
+                </li>
+                <li>
+                    <div class="box3" style="background-color: yellow;">2</div>
+                </li>
+                <li>
+                    <div class="box4" style="background-color: green;">3</div>
+                </li>
+                <li>
+                    <div class="box5" style="background-color: blue;">4</div>
+                </li>
+                <li>
+                    <div class="box6" style="background-color: purple;">5</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

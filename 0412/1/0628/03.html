@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        header{
+            width: 100%;
+            height: 120px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            margin: 100px;
+        }
+
+        .main>li {
+            margin-right: 1px;
+            float: left;
+            width: 120px;
+            text-align: center;
+        }
+
+        .main>li>a {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            background-color: #ccc;
+            transition: background-color 0.5s, color 0.7s;
+        }
+
+        /* .main>li:hover>a, */
+        .main>li>a.on {
+            background-color: yellowgreen;
+            color: #fff;
+        }
+
+
+        #subbox {
+            width: 100%;
+            height: 0;
+            background-color: wheat;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 90px;
+            z-index: 10;
+            transition: all 0.5s;
+        }
+
+        #subbox.act {
+            height: 350px;
+        }
+
+
+    </style>
+
+    <script>
+        window.addEventListener('load', function () {
+            const main = document.querySelector('.main');
+            const menuLi = document.querySelectorAll('.main > li')
+            const subbox = document.querySelector('#subbox');
+            // console.log(main)
+
+            for(let i = 0; i < menuLi.length; i++){
+                menuLi[i].addEventListener('mouseenter', (e) => {
+                    const link = e.currentTarget.children[0];
+                    link.classList.add('on');
+                });
+
+                menuLi[i].addEventListener('mouseleave', (e) => {
+                    const link = e.currentTarget.children[0];
+                    link.classList.remove('on');
+                });
+
+            }
+
+            main.addEventListener('mouseenter', () => {
+                subbox.classList.add('act');
+            });
+
+            subbox.addEventListener('mouseleave', (e) => {
+                e.target.classList.remove('act');
+            });
+        })
+    </script>
+</head>
+
+
+
+<body>
+    <!-- ul>li*5>a{main}+ul>li*5>a{sub} -->
+    <header>
+        <ul class="main">
+            <li>
+                <a href="">main</a>
+            </li>
+            <li>
+                <a href="">main</a>
+            </li>
+            <li>
+                <a href="">main</a>
+            </li>
+            <li>
+                <a href="">main</a>
+            </li>
+            <li>
+                <a href="">main</a>
+            </li>
+        </ul>
+        <div id="subbox">subbox</div>
+    </header>
+</body>
+<!-- <script></script> -->
+
+</html>

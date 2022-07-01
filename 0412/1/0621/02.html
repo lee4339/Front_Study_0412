@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .ball {
+            position: absolute;
+            left: 40px;
+            top: 120px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: violet;
+            transition: all 0.5s ease-in-out;
+        }
+        .on {
+            transform: scale(3);
+        }
+    </style>
+    <script>
+        'use strict';
+        // window.addEventListener('load', () => {
+        //     const queue = document.querySelector('#queue');
+        //     const queue_r = document.querySelector('#queue_r');
+        //     const ball = document.querySelector('.ball');
+        //     let x = ball.offsetLeft;
+        //     let targetx = 400; //최종위치값
+        //     let startx = 40; //처음위치값
+
+        //     queue.addEventListener('click', () => {
+        //        const timer = setInterval(function () {
+        //             if(x < targetx) { // 390
+        //                 x = x + 10;
+        //             } else {
+        //                 x = targetx; // 400
+        //                 clearInterval(timer);
+        //             }
+        //             ball.style.left = x + 'px';
+        //         }, 10)
+        //     });
+
+        //     queue_r.addEventListener('click', () => {
+        //         if(targetx == 400){
+        //             const timer2 = setInterval(function () {
+        //                  if(x > startx) {
+        //                      x = x - 10;
+        //                  } else {
+        //                      x = startx; // 40
+        //                      clearInterval(timer2);
+        //                  }
+        //                  ball.style.left = x + 'px';
+        //              }, 10)
+        //         }
+        //     });
+
+        
+
+        // });
+
+        window.addEventListener('load', () => {
+            const queue = document.querySelector('#queue');
+            const ball = document.querySelector('.ball');
+            let x = ball.offsetLeft;
+            let targetx = 400; //최종위치값
+
+            queue.addEventListener('click', () => {
+                animate1(ball, x, targetx); //콜백함수
+            })
+
+            function animate1(target, startx, targetx) { //구조분해할당
+                const timer = setInterval(function () {
+                    if (startx < targetx) { // 390
+                        startx += 10;
+                    } else {
+                        startx = targetx; // 400
+                        clearInterval(timer);
+                    }
+                    ball.style.left = targetx + 'px';
+                }, 10);
+
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <button id="queue">animate queue</button>
+        <button id="queue_r">animate return</button>
+        <div class="ball"></div>
+    </div>
+</body>
+</html>

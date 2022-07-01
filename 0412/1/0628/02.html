@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .main {
+            margin: 100px;
+            width: 120px;
+        }
+
+        .main>li {
+
+            margin-bottom: 1px;
+            float: none;
+            width: 120px;
+            text-align: center;
+
+        }
+
+        .main>li>a {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            background-color: #ccc;
+            transition: background-color 0.5s, color 0.7s;
+        }
+
+        .main>li:hover>a,
+        .main>li>a.on {
+            background-color: yellowgreen;
+            color: #fff;
+        }
+
+        .main .sub {
+            display: none;
+            width: 100%;
+        }
+
+        .main .sub li {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main .sub li a {
+            display: block;
+            width: 100%;
+            line-height: 40px;
+            background-color: #f1f1f1;
+            color: #666;
+        }
+
+        .main .sub li a:hover {
+            background-color: #ccc;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            //문서에서 객체 추출
+            const main = document.querySelector('.main');
+            const mainLi = document.querySelectorAll('.main > li');
+            const subli = document.querySelectorAll('.main .sub');
+            const btn = document.querySelectorAll('.main > li> a');
+
+            //효과1 classList.add(), classList.remove()
+            //대상.style.속성 = '속성값'
+            for (let i = 0; i < mainLi.length; i++) { // i => 인덱스
+
+                mainLi[i].addEventListener('click', function (e) {
+                    e.preventDefault();
+                    for (let k = 0; k < btn.length; k++) {
+                        btn[k].classList.remove('on');
+                    }
+                    //앞에 보인 서브메뉴를 찾아서 숨김
+                    for (let j = 0; j < subli.length; j++) {
+                        if (subli[j].style.display == 'block') {
+                            subli[j].style.display = 'none'
+                        }
+                    }
+                    const link = e.currentTarget.children[0];
+                    const sub = e.currentTarget.children[1];
+                    link.classList.add('on');
+                    sub.style.display = 'block'
+                    console.log(sub)
+                });
+            }
+            main.addEventListener('mouseleave', function () {
+                for (let k = 0; k < btn.length; k++) {
+                    btn[k].classList.remove('on');
+                }
+                //앞에 보인 서브메뉴를 찾아서 숨김
+                for (let j = 0; j < subli.length; j++) {
+                    if (subli[j].style.display == 'block') {
+                        subli[j].style.display = 'none'
+                    }
+                }
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+    <!-- ul>li*5>a{main}+ul>li*5>a{sub} -->
+    <ul class="main">
+        <li>
+            <a href="">main</a>
+            <ul class="sub">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">main</a>
+            <ul class="sub">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">main</a>
+            <ul class="sub">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">main</a>
+            <ul class="sub">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">main</a>
+            <ul class="sub">
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+                <li><a href="">sub</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<!-- <script></script> -->
+
+</html>

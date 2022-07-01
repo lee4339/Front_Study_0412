@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        /* header */
+        #header {
+            height: 900px;
+            overflow: hidden;
+            background-color: yellowgreen;
+        }
+
+        #header>div {
+            float: left;
+            margin: 50px 20px;
+            padding: 10;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            opacity: 1;
+            transform: translateY(100px);
+            transition: all 0.5s;
+        }
+
+        #header.active>div {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #header .type1 {
+            transition-delay: 0;
+        }
+
+        #header .type2 {
+            transition-delay: .5s;
+        }
+
+        #header .type3 {
+            transition-delay: 1s;
+        }
+
+        /* page1 */
+        #page1 {
+            height: 900px;
+            overflow: hidden;
+            background-color: violet;
+        }
+
+        #page1>div {
+            float: left;
+            margin: 50px 20px;
+            padding: 10;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            opacity: 1;
+            transform: translateY(100px);
+            transition: all 0.5s;
+        }
+
+        #page1.active>div {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #page1 .type1 {
+            transition-delay: 0;
+        }
+
+        #page1 .type2 {
+            transition-delay: .5s;
+        }
+
+        #page1 .type3 {
+            transition-delay: 1s;
+        }
+
+        /* page2 */
+        #page2 {
+            height: 900px;
+            overflow: hidden;
+            background-color: turquoise;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            let t = window.pageYOffset; //현재 화면에 y좌표값
+            let targety = 0;
+            const wrapper = document.querySelector('.wrapper');
+            const contents = wrapper.children;
+            const offsety = new Array();//contents의 top을 저장하는 배열
+            let n = 0;
+            let firstFlag = false;
+
+            for (let i = 0; i < contents.length; i++) {
+                offsety.push(contents[i].offsetTop);
+                //offsety.push 배열에 입력 
+                //contents[i].offsetTop 콘텐츠의 각각 top좌표
+            }
+
+            //header페이지 애니메이션 작동 함수
+            const firstTimer = setInterval(function () {
+                if (Math.abs(t - targety) > 10) {
+                    t -= 10;
+                } else {
+                    firstFlag = true //contents에 스크롤 되었을 실행할 함수 실행 여부
+                    t = targety;//최종위치 pageyr값을 0으로 초기화
+                    clearInterval(firstTimer);//setInterval중지 메소드
+                    contents[n].classList.add('active');//type1,2,3애니메이션
+                }
+                window.scrollTo(0, t);//스크롤을 이동시키는 메소드
+            }, 10)
+
+            window.addEventListener('scroll', function () {
+                if (!firstFlag) return;// firstTimer작동후 스크롤의 움직 시작하기위해서
+
+                t = window.pageYOffset;// scroll이 발생되고 난후 페이지 y좌표
+                // offsety[0] = header[0].offsetTop
+                // offsety[1] = page1[1].offsetTop
+                // offsety[2] = page2[2].offsetTop
+
+                if (t < offsety[1]) {
+                    n = 0;
+                } else if (t >= offsety[1] && t < offsety[2]) {
+                    n = 1;
+                } else if (t >= offsety[2]) {
+                    n = 2;
+                }
+                //header ,page1, page2 애니메니션 적용한 함수
+                //n은 contents 인덱스값
+                for (var j = 0; j < contents.length; j++) {
+                    if (j == n) {
+                        contents[j].classList.add("active");
+                    }
+                    else {
+                        contents[j].classList.remove("active");
+                    }
+                }
+            })
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </header>
+        <section id="page1">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+        <section id="page2">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+    </div>
+</body>
+
+</html>

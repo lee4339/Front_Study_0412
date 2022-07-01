@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0px; padding:0px; box-sizing:border-box}
+        ul,li{list-style-type:none;}
+        a{text-decoration: none;} 
+       
+        #gnb{ position:fixed; right:50px; top:50%;
+             width:16px; height:180px;}
+        #gnb li {
+              margin-top: 16px;
+              width:16px; height:16px; 
+              border-radius: 50%;
+              border: 2px solid #000;
+              background-color: transparent;}
+        #gnb li.act{background-color:#000;}      
+        #gnb li a{ 
+              display: block;
+              width: 16px;
+              height: 16px;
+              text-indent: -9999px;
+              }   
+        section{padding:20px; font-size:100px;
+                border-bottom: 2px solid #000;}       
+    </style>
+    <script>
+        window.addEventListener('load', ()=>{
+           //문서에 객체 추출
+           let h; //윈도의 높이
+           let n = 0; //메뉴의 인덱스값    
+           let target = 0 //목표 위치
+           const menuLi = document.querySelectorAll('#gnb li');
+           const pageLi = document.querySelectorAll('.page');
+           const body = document.body;
+        
+           setTimeout(function(){// 페이지가 열리는 순간 최상위 이동
+            menuLi[0].classList.remove('act');
+            window.scrollTo(0,0)
+           },150); 
+
+           window.addEventListener('resize', init);//화면크기에따라서 높이 조절
+
+           init();
+           //section 높이를 설정하는 함수
+           function init(){
+            h = window.innerHeight; //창의 높이
+            // console.log("h : "+h);
+            for(let i =0; i < pageLi.length; i++){
+                pageLi[i].style.height = h + 'px';
+            }
+           }
+        
+           //버튼을 클릭했을 이동하는 함수
+           for(let j = 0; j < menuLi.length; j++){
+            menuLi[j].index = j;
+            menuLi[j].addEventListener('click',(e)=>{
+                e.preventDefault();
+                n = e.currentTarget.index;//클릭된 버튼의 인덱스값
+                target = pageLi[n].offsetTop; //목표가 되는 section의 상단값(top)
+
+                for(let m = 0; m < menuLi.length; m++){
+                    if(m != n){
+                      menuLi[m].classList.remove('act');
+                    }else{
+                      menuLi[m].classList.add('act');
+                    }
+                }
+
+                //window.scrollTo(left값, top값)//스크롤을 이동하는 메소드
+                window.scrollTo(0, target)
+            })
+           }
+        
+        
+        
+        
+        
+        
+        })
+
+    </script>
+</head>
+<body>   
+<div class="container">
+	<header id="gnb">
+        <ul>
+            <li><a href="">menu1</a></li>
+            <li><a href="">menu2</a></li>
+            <li><a href="">menu3</a></li>
+            <li><a href="">menu4</a></li>
+            <li><a href="">menu5</a></li>
+            <li><a href="">menu6</a></li>
+        </ul>
+    </header>
+    <section id="index" class="page">index</section>
+    <section id="page1" class="page">page1</section>
+    <section id="page2" class="page">page2</section>
+    <section id="page3" class="page">page3</section>
+    <section id="page4" class="page">page4</section>
+    <section id="page5" class="page">page5</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .container {
+            margin-top: 35px;
+            min-width: 440px;
+        }
+
+        nav ul {
+            margin: 16px 0;
+            padding: 8px 0;
+            text-align: left;
+            font-weight: 400;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            padding: 10px 20px 10px;
+            text-decoration: none;
+            font-size: 12px;
+            color: #333;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            background-color: #f1f1f1;
+        }
+
+        nav ul li.on a {
+            background-color: #8ac007;
+            color: #fff;
+            border-color: #8ac007;
+        }
+
+        .box {
+            display: none;
+            margin: 30px 0;
+            padding: 30px 0;
+            font-size: 50px;
+            color: #000;
+            border-bottom: 4px solid #d4d4d4;
+        }
+
+        .box.act {
+            display: block;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const menuLi = document.querySelectorAll('nav li');
+            const info = document.querySelectorAll('.box');
+
+            //초기값으로 버튼과 박스에 스타일 적용
+            menuLi[0].classList.add('on');
+            info[0].classList.add('act');
+
+            for (let i = 0; i < menuLi.length; i++) {
+                menuLi[i].index = i;//버튼 클릭하는것에 대한 인덱스 미리 설정
+                let n = 0;//클릭한 메뉴의 인덱스 값이 저장되는 공간
+
+                menuLi[i].addEventListener('click', function (e) {
+                    e.preventDefault();//a태그에 이벤트를 상실
+                    n = e.currentTarget.index; //현재 클릭한 버튼에 인덱스값
+
+                    for (let j = 0; j < menuLi.length; j++) {
+                        //클릭한 버튼을 통해서 새롭게 메뉴를 반복해서
+                        //일치하는인덱스값의 메뉴에 스타일 및 적용
+                        if (j == n) {
+                            menuLi[j].classList.add('on');
+                            info[j].classList.add('act');
+                        } else {
+                            menuLi[j].classList.remove('on');
+                            info[j].classList.remove('act');
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="">menu1</a></li>
+                <li><a href="">menu2</a></li>
+                <li><a href="">menu3</a></li>
+                <li><a href="">menu4</a></li>
+            </ul>
+        </nav>
+        <div class="box box01">box01</div>
+        <div class="box box02">box02</div>
+        <div class="box box03">box03</div>
+        <div class="box box04">box04</div>
+    </div>
+
+</body>
+
+</html>
