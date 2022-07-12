@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>basic :: JavaScript example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<style>
+		body,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		ol,
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		ol,
+		ul {
+			list-style: none;
+		}
+
+		img {
+			vertical-align: top;
+			border: 0;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.clearfix::before,
+		.clearfix::after {
+			content: "";
+			display: block;
+		}
+
+		.clearfix::after {
+			clear: both;
+		}
+
+		#footer {
+			margin-top: 10px;
+			min-width: 1100px;
+		}
+
+		#footer .rel_site {
+			min-width: 1100px;
+			width: 100%;
+			height: 100px;
+			background-color: aqua;
+		}
+
+		#footer .rel_site .rel_site_inner {
+			position: relative;
+			margin: 0 auto;
+			width: 1100px;
+			height: 100px;
+			text-align: center;
+			background-color: rebeccapurple;
+		}
+
+		#footer .rel_site .rel_site_inner .site_wrapper {
+			display: inline-block;
+			position: relative;
+			margin-top: 10px;
+			width: 750px;
+			height: 90px;
+			background-color: yellow;
+		}
+
+		#footer .rel_site .rel_site_inner .site_wrapper ul {
+			position: absolute;
+			width: 1016px;
+			height: 80px;
+		}
+
+		#footer .rel_site .rel_site_inner .site_wrapper ul li {
+			position: relative;
+			float: left;
+			margin: 0 30px;
+			width: 90px;
+			height: 90px;
+			vertical-align: middle;
+			box-sizing: border-box;
+		}
+
+		#footer .rel_site .rel_site_inner .site_wrapper ul li a {
+			display: inline-block;
+			height: 90px;
+			text-align: center;
+		}
+
+		#footer .rel_site .rel_site_inner .site_wrapper ul li a img {
+			vertical-align: middle;
+			max-width: 100%;
+		}
+
+		#footer .rel_site_inner .direction a.prev {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 30px;
+		}
+
+		#footer .rel_site_inner .direction a.next {
+			display: block;
+			position: absolute;
+			right: 50px;
+			top: 30px;
+		}
+	</style>
+
+	<script>
+		window.addEventListener('load', () => {
+			const footer = document.querySelector("#footer");
+			const footerInner = footer.children[0].children[0]; //rel_site_inner추출
+			const moveUl = footerInner.children[0].children;
+			const direction = footerInner.children[1];
+			const prev = direction.children[0];
+			const next = direction.children[1];
+
+			console.log(moveUl);
+			console.log(prev);
+			console.log(next);
+
+			prev.addEventListener('click', () => {
+				e.preventDefault();
+
+			});
+
+			next.addEventListener('click', () => {
+				e.preventDefault();
+				let firstchild = moveUl.firstEl
+			});
+
+
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<footer id="footer">
+			<div class="rel_site">
+				<div class="rel_site_inner">
+					<div class="site_wrapper">
+						<ul>
+							<li><a href=""><img src="images/partner1.png" alt="partner1"></a></li>
+							<li><a href=""><img src="images/partner2.png" alt="partner2"></a></li>
+							<li><a href=""><img src="images/partner3.png" alt="partner3"></a></li>
+							<li><a href=""><img src="images/partner4.png" alt="partner4"></a></li>
+							<li><a href=""><img src="images/partner5.png" alt="partner5"></a></li>
+							<li><a href=""><img src="images/partner6.png" alt="partner6"></a></li>
+						</ul>
+					</div>
+					<div class="direction">
+						<a href="" class="prev"><img src="images/footer_btn_prev.jpg" alt="footer prev"></a>
+						<a href="" class="next"><img src="images/footer_btn_next.jpg" alt="footer next"></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+
+</html>

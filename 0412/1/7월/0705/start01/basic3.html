@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>basic :: JavaScript node access</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic">
+<style>
+	body {
+		margin: 20px;
+		padding: 20px;
+		line-height: 1;
+		font-family: "Open Sans", sans-serif;
+		font-size: 1em;
+		background-color: #555;
+		color: #000;
+	}
+
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin-top: 20px;
+	}
+
+	button {
+		padding: 5px 15px;
+		background-color: #666;
+		color: #000;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		transition: all 0.5s;
+	}
+
+	button:hover {
+		background-color: #888;
+	}
+
+	.title {
+		margin: 0;
+		padding: 0;
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+
+	.container {
+		margin-top: 35px;
+	}
+
+	.gallery {
+		margin-top: 60px;
+	}
+
+	.gallery img {
+		width: 200px;
+	}
+</style>
+<script>
+	window.addEventListener('load', () => {
+		//버튼을 통해 이미지가 순환되는 갤러리 구현
+		const prependBtn = document.querySelector("#prepend");
+		const appendBtn = document.querySelector("#append");
+		const gallery = document.getElementsByClassName("gallery")[0];
+
+		
+		prependBtn.addEventListener('click', () => {
+			const lastChild = gallery.lastElementChild;
+			const firstChild = gallery.firstElementChild;
+			const newNode = lastChild.cloneNode(true);
+			gallery.removeChild(lastChild);
+			gallery.insertBefore(newNode, firstChild);
+		// 		//노드 속성 읽기
+		// 		const lastChild = gallery.lastElementChild;
+		// 		let src = lastChild.getAttribute('src');
+		// 		let alt = lastChild.getAttribute('alt');
+				
+		// 		//노드 삭제
+		// 		gallery.removeChild(lastChild);
+	
+		// 		//새로운 노드 생성
+		// 		const newNode = document.createElement("img");
+		// 		newNode.setAttribute('src' + src);
+		// 		newNode.setAttribute('alt' + alt);
+	
+		// 		//새로운 노드 추가
+		// 		let firstChild = gallery.firstElementChild;
+		// 		console.log(firstChild);
+		// 		gallery.insertBefore(newNode, firstChild);
+		});
+		
+		appendBtn.addEventListener('click', () => {
+			const firstChild = gallery.firstElementChild;
+			const newNode = firstChild.cloneNode(true);
+			gallery.removeChild(firstChild);
+			gallery.appendChild(newNode);
+
+				// //노드 속성 읽기
+				// const firstChild = gallery.firstElementChild;
+				// let src = lastChild.getAttribute('src');
+				// let alt = lastChild.getAttribute('alt');
+				
+				// //노드 삭제
+				// gallery.removeChild(lastChild);
+	
+				// //새로운 노드 생성
+				// const newNode = document.createElement("img");
+				// newNode.setAttribute('src' + src);
+				// newNode.setAttribute('alt' + alt);
+	
+				// //새로운 노드 추가
+				// let firstChild = gallery.firstElementChild;
+				// console.log(firstChild);
+				// gallery.insertBefore(newNode, firstChild);
+		});
+
+		
+		
+
+	});
+
+</script>
+</head>
+
+<body>
+<h1 class="title">basic :: JavaScript node access</h1>
+<div class="container">
+	<button id="prepend" title="prepend">prepend</button>
+	<button id="append" title="append">append</button>
+	<div class="gallery">
+		<img src="./images/zoo1.jpg" alt="zoo1">
+		<img src="./images/zoo2.jpg" alt="zoo2">
+		<img src="./images/zoo3.jpg" alt="zoo3">
+	</div>
+</div>
+</body>
+</html>

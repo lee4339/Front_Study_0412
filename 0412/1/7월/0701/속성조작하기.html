@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgs = document.querySelectorAll('img');
+
+            imgs.forEach((imgs, index) => {
+                const width = (index + 1) * 100
+                const src = './img.jpg';
+
+                // imgs.setAttribute('속성명', 속성값); /속성 설정
+                // imgs.getAttribute('속성명', 속성값); /속성 추출
+                imgs.setAttribute('src', src);
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <img src="" class="rect" alt="">
+    <img src="" class="rect" alt="">
+    <img src="" class="rect" alt="">
+    <img src="" class="rect" alt="">
+</body>
+</html>

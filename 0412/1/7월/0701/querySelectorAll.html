@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //객체
+            // document.getElementById('아이디명');
+            // document.querySelector('스타일방식으로 객체명');
+
+            //배열로 선택
+            // document.getElementsByClassName('클래스명');
+            // document.getElementsByTagName('태그네임'); 
+            // document.querySelectorAll('스타일방식으로 객체명지정');
+
+            const h1s = document.querySelectorAll('h1');
+
+            // h1s.forEach((h1) => { //인덱스(배열요소)
+            //     h1.textContent = 'header';
+            //     h1.style.color = 'skyblue';
+            //     h1.style.backgroundColor = '#000';
+            //     h1.style.padding = '10px';
+            // });
+
+            for(let i = 0; i < h1s.length; i++) {
+                h1s[i].textContent = 'header';
+                h1s[i].style.color = 'skyblue';
+                h1s[i].style.backgroundColor = '#000';
+                h1s[i].style.padding = '10px';
+            };
+            
+        });
+
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //문서객체
+            const input = document.querySelector('input');
+            const button = document.querySelector('button');
+            const p = document.querySelector('p');
+
+            button.addEventListener('click', function () {
+                //입력된 숫자로 변환
+                const inch = Number(input.value);
+
+                // null definder NaN
+                //숫자가 아니라면 바로 리턴설정
+                if(isNaN(inch) || inch == '') {
+                    p.textContent = '숫자를 입력해주세요'
+                    return;
+                }
+
+                //변환하고 출력
+                const cm = inch * 2.54;
+                p.textContent = `${cm} cm`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text"> inch <br>
+    <button>계산</button>
+    <p></p>
+</body>
+</html>

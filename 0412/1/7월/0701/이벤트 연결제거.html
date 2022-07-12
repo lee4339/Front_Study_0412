@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 { /*클릭을 여러 번 했을 때 글자가 선택되는 것을 막기 위한 스타일*/
+            user-select: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+                let counter = 0; //증가되는 숫자를 저장되는 변수
+                let isConnect = false; //상태값
+
+                const h1 = document.querySelector('h1');
+                const p = document.querySelector('p');
+                const connectButton = document.querySelector('#connect');
+                const disconnectButton = document.querySelector('#disconnect');
+
+                const listener = (e) => {
+                    h1.textContent = `클릭 횟수: ${counter++}`;
+                }
+
+                connectButton.addEventListener('click', () => {
+                    if (isConnect === false) {
+                        h1.addEventListener('click', listener);
+                        p.textContent = '이벤트 연결 상태: 연결';
+                        isConnect = true;
+                    }
+                });
+                
+                /*
+                disconnectButton.addEventListener('click', () => {
+                    if (isConnect === true) {
+                        h1.removeEventListener('click', listener);
+                        p.textContent = '이벤트 연결 상태: 해제';
+                        isConnect = false;
+                    }
+                });
+                */
+
+                /*
+                //고전방식1
+                disconnectButton.onClick = function(){
+                    if (isConnect === true) {
+                        h1.removeEventListener('click', listener);
+                        p.textContent = '이벤트 연결 상태: 해제';
+                        isConnect = false;
+                    }
+                }
+                */
+
+                //고전방식2
+                function con() {
+                    if (isConnect === true) {
+                        h1.removeEventListener('click', listener);
+                        p.textContent = '이벤트 연결 상태: 해제';
+                        isConnect = false;
+                    }
+                }
+
+                //function -> 기능을 모듈화 시켰다. 기능의 그룹화
+                // 헤더 메인 컨텐츠(아티클별) 풋터
+                
+            });
+    </script>
+</head>
+<body>
+    <h1 onclick="con">클릭 횟수: 0</h1>
+    <button id="connect">이벤트 연결</button>
+    <button id="disconnect">이벤트 제거</button>
+    <p>이벤트 연결 상태: 해제</p>
+</body>
+</html>
