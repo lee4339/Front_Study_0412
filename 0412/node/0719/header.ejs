@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <style>
+        body {
+            background-color: deepskyblue;
+        }
+        
+        h2 {
+            font-size: 30px;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2><%=title%></h2>  <!-- = : 데이터 값을 출력하기위해 변수를 지정 -->
+        <div>
+            <p><%-content%></p> <!-- - : 데이터를 출력하기위해서 객체 또는 파일 지정 -->
+        </div>
+    </header>
+</body>
+</html>
