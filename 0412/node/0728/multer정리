@@ -1,0 +1,24 @@
+multer 모듈
+: 파일 업로드를 위한 익스프레스에 적용하는 미드웨어.
+
+serve-static 모듈
+: 특정 폴더를 요청에 의해서 직접 파일 접근할 수 있도록 기능을 제공하는 익스프레스 미들웨어.
+
+morgan 모듈
+로그를 관리하기 위한 별도의 라이브러리 모듈
+
+multer()
+: 생성자에 diskStorage 설정과 파일 크기를 설정합니다.
+
+multer.diskStorage {
+    destination : 저장될 폴더를 설정합니다.
+    filename : 저장될 파일이름을 설정합니다.
+}
+
+multer({
+    storage: storage   //diskStorage 설정객체
+    limit: {
+        file: 5    //파일전송 갯수
+        fileSize: 1024 * 1024 * 100    //파일전송 용량
+    }
+})

@@ -161,6 +161,42 @@ router.route('/member/edit').post((req, res) => {
 
 
 // 회원삭제
+//http://localhost:3000/member/delete (post)
+router.route('/member/delete').post((req, res) => {
+    console.log('/member/delete 호출');
+    const userid = req.body.userid;
+    console.log(`userid:${userid}`);
+
+    if(database) {
+        deleteMember(database, userid, (err, result) => {
+            if(!err){
+                //리턴이 되어서 예외처리
+                if(result.deletedCount > 0){
+                    res.writeHead('200', { 'content-type' : 'text/html;charset=utf-8' });
+                    res.write('<h2>데이터베이스 삭제 성공</h2>');
+                    res.write('<p>회원정보 삭제 성공했습니다.</p>');
+                    res.end();
+                } else {
+                    res.writeHead('200', { 'content-type' : 'text/html;charset=utf-8' });
+                    res.write('<h2>데이터베이스 삭제 실패</h2>');
+                    res.write('<p>회원정보 삭제 실패했습니다.</p>');
+                    res.end();
+                }
+            }else{ //서버에 오류 발생시 응답내용
+                res.writeHead('200', { 'content-type' : 'text/html;charset=utf-8' });
+                res.write('<h2>데이터베이스 삭제 실패</h2>');
+                res.write('<p>서버 오류 발생! 회원정보 삭제 실패했습니다.</p>');
+                res.end();
+            }
+        });
+    }else {// 데이터베이스에 연결 실패시 응답내용
+        res.writeHead('200', { 'content-type' : 'text/html;charset=utf-8' });
+        res.write('<h2>데이터베이스 연결 실패</h2>');
+        res.write('<p>mongodb 데이터베이스에 연결하지 못했습니다. </p>');
+        res.end();
+
+    }
+});
 
 //---------------------------------------------------------------------------------------
 const joinMember = function (database, userid, userpw, username, age, callback) {
@@ -222,6 +258,27 @@ const editMember = (database, userid, userpw, username, age, callback) => {
     });
 
 };
+
+const deleteMember = (database, userid, callback) => {
+    console.log('deleteMember호출')
+    const members = database.collection('member');
+    
+    members.deleteOne({userid:userid}, (err, result) => {
+        if(!err) {
+            //삭제시 메시지 설정하는 조건문 
+            if(result.deletedCount > 0) {
+                console.log(`사용자 document ${result.deletedCount}명 삭제됨`);
+            } else {
+                console.log(`삭제된 document 없음`);
+            }
+            callback(null, result);
+            return;
+        }else {
+            console.log(err);
+            callback(err, null)
+        }
+    });
+}
 
 
 
